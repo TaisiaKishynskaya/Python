@@ -1,0 +1,105 @@
+class MenuItem:
+    def __init__(self, name, description, price):
+        self.name = name
+        self.description = description
+        self.price = price
+
+    def __str__(self):
+        return f"{self.name}: {self.description} ({self.price} руб.)"
+
+
+class Menu:
+    def __init__(self):
+        self.menu_items = []
+
+    def add_item(self, menu_item):
+        self.menu_items.append(menu_item)
+
+    def remove_item(self, menu_item):
+        self.menu_items.remove(menu_item)
+
+    def print_menu(self):
+        print("Меню:")
+        for item in self.menu_items:
+            print(item)
+
+    def get_menu_item_by_name(self, name):
+        for item in self.menu_items:
+            if item.name == name:
+                return item
+        return None
+
+
+class Order:
+    def __init__(self):
+        self.items = []
+        self.total_price = 0
+
+    def add_item(self, menu_item):
+        self.items.append(menu_item)
+        self.total_price += menu_item.price
+
+    def remove_item(self, menu_item):
+        self.items.remove(menu_item)
+        self.total_price -= menu_item.price
+
+    def print_order(self):
+        print("Замовлення:")
+        for item in self.items:
+            print(item)
+        print(f"Усього: {self.total_price} грн.")
+
+
+class Cafe:
+    def __init__(self):
+        self.menu = Menu()
+        self.order = Order()
+
+    def add_to_order(self, item_name):
+        item = self.menu.get_menu_item_by_name(item_name)
+        if item:
+            self.order.add_item(item)
+            print(f"{item_name} додано в замовлення")
+        else:
+            print(f"{item_name} не знайден в меню")
+
+    def remove_from_order(self, item_name):
+        item = self.menu.get_menu_item_by_name(item_name)
+        if item:
+            self.order.remove_item(item)
+            print(f"{item_name} видален з замовлення")
+        else:
+            print(f"{item_name} не знайден в замовленні")
+
+    def view_menu(self):
+        self.menu.print_menu()
+
+    def view_order(self):
+        self.order.print_order()
+
+
+# Зтворення об'єкту кафе
+cafe = Cafe()
+
+# Зтворення меню
+cafe.menu.add_item(MenuItem("Паста", "Спагетті с м'ясним соусом", 350))
+cafe.menu.add_item(MenuItem("Салат", "Салат з овочів з куркою", 250))
+cafe.menu.add_item(MenuItem("Суп", "Борщ зі сметаною", 200))
+cafe.menu.add_item(MenuItem("Десерт", "Тирамісу", 150))
+
+# Вивід меню
+cafe.view_menu()
+
+# Додавання блюд до замовлення
+cafe.add_to_order("Паста")
+cafe.add_to_order("Суп")
+cafe.add_to_order("Десерт")
+
+# Вивід замовлення
+cafe.view_order()
+
+# Видалення блюда з замовлення
+cafe.remove_from_order("Паста")
+
+# Вивід оновленого замовлення
+cafe.view_order()
