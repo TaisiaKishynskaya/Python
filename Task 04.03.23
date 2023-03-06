@@ -1,3 +1,5 @@
+#Таск: Замовлення блюд у кафе.
+
 class MenuItem:
     def __init__(self, name, description, price):
         self.name = name
