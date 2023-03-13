@@ -1,4 +1,4 @@
-print("""Introduction to programming’:Task 1
+print("""Introduction to programming’: Task 1
          Kyshynska Taisiia""")
 
 print('Vladislav, ' * 44 + "Vladislav.")
