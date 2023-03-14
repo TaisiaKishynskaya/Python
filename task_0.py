@@ -67,7 +67,7 @@ def main():
             if more.lower() != "так":
                 break
 
-    order.print_order()# Виведення замовлення
+    order.print_order()#Виведення замовлення
 
 if name == 'main':
     main()
