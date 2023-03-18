@@ -4,4 +4,9 @@
 print("""Introduction to programming’: Task 2
          Kyshynska Taisiia""")
 
-x = raw_input('x =')
+x = int(input('x = '))
+y = int(input('y = '))
+z = int(input('z = '))
+
+equal = ((15 - x / y) / (33 ** y + 19.3) + z)
+print(equal)
