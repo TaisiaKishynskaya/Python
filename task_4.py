@@ -1,7 +1,7 @@
-"""Introduction to programming’: Task 2,
+"""Introduction to programming’: Task 4,
    Kyshynska Taisiia"""
 
-print("""Introduction to programming’: Task 2
+print("""Introduction to programming’: Task 4
          Kyshynska Taisiia""")
 
 my_str = input('Input six-digit number: ')
