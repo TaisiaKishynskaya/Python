@@ -1,8 +1,8 @@
 """Introduction to programming’: Task 4,
    Kyshynska Taisiia"""
 
-print("""Introduction to programming’: Task 4
-         Kyshynska Taisiia""")
+print('Introduction to programming’: Task 2')
+print('Kyshynska Taisiia')
 
 my_str = input('Input six-digit number: ')
 sum_first = 0
