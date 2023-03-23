@@ -1,21 +1,72 @@
 """Introduction to programming’: Task 3,
    Kyshynska Taisiia"""
+
 import math as m
 
 print('Introduction to programming’: Task 2')
 print('Kyshynska Taisiia')
 
 TEMPLATE = '{} = '
-x = float(input(TEMPLATE.format('x')))
-z = float(input(TEMPLATE.format('z')))
 
-if isinstance(x, (int, float)) and isinstance(z, (int, float)): # для проверки того, что переменные x и z являются числами,
-    y = (x + m.exp(z - 1)) / (1 - (x ** 2) * abs(x - z)) # а затем продолжаем выполнение кода, если это так.
+while True:
+    x_input = input(TEMPLATE.format('x'))
+    try:
+        x = float(x_input)
+        break
+    except ValueError:
+        print('Invalid input. Please input a number.')
 
-    if (x**2) * abs(x - z) == 1:
+while True:
+    z_input = input(TEMPLATE.format('z'))
+    try:
+        z = float(z_input)
+        break
+    except ValueError:
+        print('Invalid input. Please input a number.')
+
+while True:
+    y = (x + m.exp(z - 1)) / (1 - (x ** 2) * abs(x - z))
+    if (x ** 2) * abs(x - z) == 1:
         print('The values of the variables go beyond the scope of the function')
+        break
     else:
         print(y)
-else:
-    print('You need to input nambers')
+        break
 
+while True:
+    choice = input('Do you want to change the values of x or z? (y/n) ')
+    if choice.lower() == 'y':
+        var_choice = input('Which variable do you want to change? (x/z) ')
+
+        while True:
+            new_value = input('Enter the new value: ')
+
+            try:
+                new_value = float(new_value)
+                break
+            except ValueError:
+                print('Invalid input. Please input a number.')
+
+        if var_choice.lower() == 'x':
+            x = new_value
+        elif var_choice.lower() == 'z':
+            z = new_value
+        else:
+            print('Invalid input')
+
+        while True:
+            y = (x + m.exp(z - 1)) / (1 - (x ** 2) * abs(x - z))
+
+            if (x ** 2) * abs(x - z) == 1:
+                print('The values of the variables go beyond the scope of the function')
+                break
+            else:
+                print(y)
+                break
+
+    elif choice.lower() == 'n':
+        break
+
+    else:
+        print('Invalid input')
+        print(y)
