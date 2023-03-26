@@ -15,4 +15,4 @@ while abs(xn1 - xn) > eps:  # until the required accuracy is achieved
     xn = xn1
     xn1 = 0.5 * (xn + a / xn)
 
-print('The square root of a number', a, 'is', xn1)
+print(f'The square root of a number {a} is {xn1}')

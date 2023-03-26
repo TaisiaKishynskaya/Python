@@ -16,4 +16,4 @@ while abs(a) >= eps:
     a = m.factorial(n) / (3 * n ** n)
     suma += a
 
-print('The sum of the series with eps=10^-4 accuracy is: ', suma)
+print(f'The sum of the series with eps=10^-4 accuracy is: {suma}')
