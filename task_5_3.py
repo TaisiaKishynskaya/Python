@@ -4,8 +4,17 @@
 print('Introduction to programming’: Task 2')
 print('Kyshynska Taisiia')
 
-a = float(input('Enter a positive number a: '))
-x1 = float(input('Enter any leading positive number x1: '))
+while True:
+    try:
+        a = float(input('Enter a positive number a: '))
+        if a <= 0:
+            raise ValueError
+        x1 = float(input('Enter any leading positive number x1: '))
+        if x1 <= 0:
+            raise ValueError
+        break
+    except ValueError:
+        print("Invalid input, please enter a positive number.")
 
 eps = 1e-4  # accuracy
 xn = x1

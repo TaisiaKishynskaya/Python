@@ -1,19 +1,13 @@
 """Introduction to programming’: Task 2,
    Kyshynska Taisiia"""
 
-import math as m
+from itertools import takewhile, count
 
 print('Introduction to programming’: Task 2')
 print('Kyshynska Taisiia')
 
 eps = 1e-4  # accuracy
-n = 1  # row member number
-a = m.factorial(n) / (3 * n ** n)  # the first term of the series
-suma = a  # initial amount
+row = (1 / pow(2, n) + 1 / pow(3, n) for n in count())  # series generator
+suma = sum(list(takewhile(lambda x: x >= eps, row)))  # the sum of the series with the specified accuracy
 
-while abs(a) >= eps:
-    n += 1
-    a = m.factorial(n) / (3 * n ** n)
-    suma += a
-
-print(f'The sum of the series with eps=10^-4 accuracy is: {suma}')
+print(f'The sum of the series with eps={eps} accuracy is: {suma}')
