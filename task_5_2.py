@@ -12,4 +12,4 @@ while n != 0:
     n //= 10  # divide by 10 to separate the last digit
     k += 1  # we increase the counter by 1
 
-print('The number of digits in the entered number: ', k)
+print(f'The number of digits in the entered number: {k}')
