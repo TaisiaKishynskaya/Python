@@ -1,24 +1,31 @@
-"""Introduction to programming’: Task 4,
-   Kyshynska Taisiia"""
-
-print('Introduction to programming’: Task 2')
+print('Introduction to programming: Task 2')
 print('Kyshynska Taisiia')
 
-my_str = input('Input six-digit number: ')
-sum_first = 0
-sum_last = 0
+while True:
+    my_str = input('Input six-digit number or type "exit" to quit: ')
 
-# Перевіряємо, чи введено шестизначне число
-if len(my_str) == 6:
-    # Обчислюємо суму перших та останніх трьох цифр
-    for i in range(3):
-        sum_first += int(my_str[i])
-        sum_last += int(my_str[i + 3])
+    # we check that the user does not want to log out
+    if my_str.lower() == "exit":
+        break
 
-    # Порівнюємо суми перших та останніх трьох цифр
-    if sum_first == sum_last:
-        print("This is a lucky number!")
+    # we check that the number is entered
+    if not my_str.isdigit():
+        print("Input a number!")
     else:
-        print("This is not a lucky number.")
-else:
-    print("Input six-digit number!")
+        # we check that the number is six-digit
+        if len(my_str) != 6:
+            print("Input a six-digit number!")
+        else:
+            sum_first = 0
+            sum_last = 0
+
+            # We calculate the sum of the first and last three digits
+            for i in range(3):
+                sum_first += int(my_str[i])
+                sum_last += int(my_str[i + 3])
+
+            # We compare the sums of the first and last three digits
+            if sum_first == sum_last:
+                print("This is a lucky number!")
+            else:
+                print("This is not a lucky number.")
