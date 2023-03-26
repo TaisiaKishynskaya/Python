@@ -3,8 +3,8 @@
 
 import math as m
 
-print("""Introduction to programming’: Task 2
-         Kyshynska Taisiia""")
+print('Introduction to programming’: Task 2')
+print('Kyshynska Taisiia')
 
 eps = 1e-4  # accuracy
 n = 1  # row member number
@@ -16,4 +16,4 @@ while abs(a) >= eps:
     a = m.factorial(n) / (3 * n ** n)
     suma += a
 
-print("The sum of the series with eps=10^-4 accuracy is: ", suma)
+print('The sum of the series with eps=10^-4 accuracy is: ', suma)
