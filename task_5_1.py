@@ -1,19 +1,19 @@
 """Introduction to programming’: Task 2,
    Kyshynska Taisiia"""
 
+import math as m
+
 print("""Introduction to programming’: Task 2
          Kyshynska Taisiia""")
 
-import math
-
-eps = 1e-4  # точність
-n = 1  # номер члена ряду
-a = math.factorial(n) / (3 * n ** n)  # перший член ряду
-suma = a  # початкова сума
+eps = 1e-4  # accuracy
+n = 1  # row member number
+a = m.factorial(n) / (3 * n ** n)  # the first term of the series
+suma = a  # initial amount
 
 while abs(a) >= eps:
     n += 1
-    a = math.factorial(n) / (3 * n ** n)
+    a = m.factorial(n) / (3 * n ** n)
     suma += a
 
-print("Сума ряду з точністю eps=10^-4 дорівнює:", suma)
+print("The sum of the series with eps=10^-4 accuracy is: ", suma)

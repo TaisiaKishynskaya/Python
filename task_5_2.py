@@ -4,12 +4,12 @@
 print("""Introduction to programming’: Task 2
          Kyshynska Taisiia""")
 
-n = int(input("Введіть ціле число: "))
+n = int(input("Enter an integer: "))
 
-k = 0  # лічильник цифр
+k = 0  # digit counter
 
 while n != 0:
-    n //= 10  # ділимо на 10, щоб відокремити останню цифру
-    k += 1  # збільшуємо лічильник на 1
+    n //= 10  # divide by 10 to separate the last digit
+    k += 1  # we increase the counter by 1
 
-print("Кількість цифр у введеному числі: ", k)
+print("The number of digits in the entered number: ", k)
