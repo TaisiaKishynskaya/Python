@@ -1,7 +1,7 @@
-import sqlite3
+import sqlite3  # предоставляет интерфейс для работы с базами данных SQLite в Python
 import csv
 
-with open('imdb.csv', 'w', newline='') as f:
+with open('imdb.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
     writer.writerow(['title', 'year', 'rating'])
     writer.writerow(['The Shawshank Redemption', 1994, 9.3])
@@ -19,10 +19,11 @@ with open('imdb.csv', 'w', newline='') as f:
 conn = sqlite3.connect('imdb.db')
 
 # Створюємо таблицю ratings
-conn.execute('CREATE TABLE ratings (id INTEGER PRIMARY KEY, title VARCHAR(20), year INT, rating FLOAT)')
+conn.execute('CREATE TABLE ratings (id INTEGER PRIMARY KEY, '
+             'title VARCHAR(20), year INT, rating FLOAT)')
 
 # Додаємо дані з файлу imdb.csv
-with open('imdb.csv') as f:
+with open('imdb.csv', encoding='utf-8') as f:
     reader = csv.reader(f)
     next(reader)  # пропускаємо заголовок файлу
     for row in reader:
