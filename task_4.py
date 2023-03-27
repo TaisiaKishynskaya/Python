@@ -16,16 +16,16 @@ while True:
         if len(my_str) != 6:
             print("Input a six-digit number!")
         else:
-            sum_first = 0
-            sum_last = 0
+            SUM_FIRST = 0
+            SUM_LAST = 0
 
             # We calculate the sum of the first and last three digits
             for i in range(3):
-                sum_first += int(my_str[i])
-                sum_last += int(my_str[i + 3])
+                SUM_FIRST += int(my_str[i])
+                SUM_LAST += int(my_str[i + 3])
 
             # We compare the sums of the first and last three digits
-            if sum_first == sum_last:
+            if SUM_FIRST == SUM_LAST:
                 print("This is a lucky number!")
             else:
                 print("This is not a lucky number.")
