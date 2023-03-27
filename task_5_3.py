@@ -16,11 +16,11 @@ while True:
     except ValueError:
         print("Invalid input, please enter a positive number.")
 
-eps = 0.0001  # accuracy
+EPSILON = 0.0001  # accuracy
 xn = x1
 xn1 = 0.5 * (xn + a / xn)  # the first term of the sequence
 
-while abs(xn1 - xn) > eps:  # until the required accuracy is achieved
+while abs(xn1 - xn) > EPSILON:  # until the required accuracy is achieved
     xn = xn1
     xn1 = 0.5 * (xn + a / xn)
 
