@@ -1,5 +1,5 @@
 name: after-push checks
-run-name: checks
+run-name: 5checks
 on:
   workflow_dispatch:
   push:
