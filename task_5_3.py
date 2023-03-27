@@ -16,7 +16,7 @@ while True:
     except ValueError:
         print("Invalid input, please enter a positive number.")
 
-eps = 1e-4  # accuracy
+eps = 0.0001  # accuracy
 xn = x1
 xn1 = 0.5 * (xn + a / xn)  # the first term of the sequence
 

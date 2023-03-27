@@ -18,4 +18,3 @@ while n != 0:
     k += 1  # we increase the counter by 1
 
 print(f'The number of digits in the entered number: {k}')
-
