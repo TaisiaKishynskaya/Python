@@ -1,4 +1,4 @@
-import sqlite3  # предоставляет интерфейс для работы с базами данных SQLite в Python
+import sqlite3  # provides an interface for working with SQLite databases in Python
 import csv
 
 with open('imdb.csv', 'w', newline='', encoding='utf-8') as f:
@@ -15,25 +15,25 @@ with open('imdb.csv', 'w', newline='', encoding='utf-8') as f:
     writer.writerow(['The Good, the Bad and the Ugly', 1966, 8.8])
     writer.writerow(['Forrest Gump', 1994, 3.8])
 
-# Відкриваємо з'єднання з базою даних
+# Checking data base
 conn = sqlite3.connect('imdb.db')
 
-# Створюємо таблицю ratings
+# Create a table ratings
 conn.execute('CREATE TABLE ratings (id INTEGER PRIMARY KEY, '
              'title VARCHAR(20), year INT, rating FLOAT)')
 
-# Додаємо дані з файлу imdb.csv
+# Adding data to the file imdb.csv
 with open('imdb.csv', encoding='utf-8') as f:
     reader = csv.reader(f)
-    next(reader)  # пропускаємо заголовок файлу
+    next(reader)  # skip file header
     for row in reader:
         conn.execute('INSERT INTO ratings (title, year, rating) VALUES (?, ?, ?)', row)
 
-# Зберігаємо зміни і закриваємо з'єднання з базою даних
+# Take care of changes and close the database
 conn.commit()
 conn.close()
 
-# Виводимо всі записи таблиці ratings у алфавітному порядку за полем title
+# Display all entries in the ratings table in alphabetical order behind the title field
 conn = sqlite3.connect('imdb.db')
 cursor = conn.execute('SELECT * FROM ratings ORDER BY title')
 print('DB sorted by ABC:')
@@ -41,7 +41,7 @@ for row in cursor:
     print(row)
 conn.close()
 
-# Виводимо всі записи таблиці ratings з ретингом більшим за 8.70
+# Display all entries in the ratings table with a rating greater than 8.70
 conn = sqlite3.connect('imdb.db')
 cursor = conn.execute('SELECT * FROM ratings WHERE rating > 8.70')
 print('All entries in the ratings table with a rating greater than 8.70:')
