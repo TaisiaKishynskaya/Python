@@ -1,0 +1,38 @@
+inherits:
+    - strictness_high
+
+ignore:
+  - ^docs/
+  - ^build/
+  - venv
+
+test-warnings: true
+
+output-format: grouped
+
+pep8:
+    # style checking
+    run: true
+    options:
+        max-line-length: 100
+
+pylint:
+    # static analysis and then some
+    run: true
+    options:
+        max-line-length: 100
+        # allow 'log' as global constant
+        const-rgx: "(([A-Z_][A-Z0-9_]*)|(__.*__)|log)$"
+        const-hint: "(([A-Z_][A-Z0-9_]*)|(__.*__)|log)$"
+        # pytest module has dynamically assigned functions,
+        # raising errors such as: E1101: Module 'pytest' has
+        # no 'mark' member
+        ignored-classes: pytest
+    disable:
+        # Too many lines in module
+        - C0302
+        # Used * or ** magic
+        - W0142
+        # Used builtin function 'filter'.
+        # (For maintainability, one should prefer list comprehension.)
+        - W0141
