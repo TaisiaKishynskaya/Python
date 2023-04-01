@@ -8,7 +8,7 @@ def input_number():
 
 
 if __name__ == '__main__':
-    print('Introduction to programming: Task 2')
+    print('Introduction to programming: Task 4')
     print('Kyshynska Taisiia')
 
     while True:
