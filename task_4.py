@@ -8,8 +8,10 @@ def input_number():
 
 
 if __name__ == '__main__':
-    print('Introduction to programming: Task 4')
-    print('Kyshynska Taisiia')
+    from utils import get_intro_string, get_name_string
+
+    print(get_intro_string())
+    print(get_name_string())
 
     while True:
         my_str = input_number()
