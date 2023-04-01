@@ -1,45 +1,41 @@
-"""Introduction to programming’: Task 2,
-   Kyshynska Taisiia"""
+from utils import get_name_string, get_intro_string
 
-print('Introduction to programming’: Task 2')
-print('Kyshynska Taisiia')
+print(get_intro_string())
+print(get_name_string())
 
-TEMPLATE = 'Input {} = '
-while True:
-    try:
-        x = int(input(TEMPLATE.format('x')))
-        y = int(input(TEMPLATE.format('y')))
-        z = int(input(TEMPLATE.format('z')))
-        break
-    except ValueError:
-        print('Error: Input numbers')
+variables = ['x', 'y', 'z']
+values = []
+TEMPLATE = 'Input {} value: '
+
+
+def get_input_value(input_variable):
+    while True:
+        try:
+            input_value = int(input(TEMPLATE.format(input_variable)))
+            if input_variable == 'y' and input_value == 0:
+                raise ValueError('y cannot be zero')
+            return input_value
+        except ValueError as e:
+            print(f'Error: {e}')
+            print(f'Input a valid number for {input_variable}')
+
+
+for var in variables:
+    value = get_input_value(var)
+    values.append(value)
+
+x, y, z = values
 
 while True:
     equal = ((15 - x / y) / (33 ** y + 19.3) + z)
     print(equal)
-    change_input = input('Do you want to change x, y, z or exit? Input "x", "y", "z" or "exit": ')
-    if change_input.lower() == 'exit':
+    change_input = input('Do you want to change x, y, z or exit? Input "x", "y", "z" or "exit": ').lower()
+    if change_input == 'exit':
         break
-    elif change_input.lower() == 'x':
-        while True:
-            try:
-                x = int(input(TEMPLATE.format('x')))
-                break
-            except ValueError:
-                print('Error: Input a number for x')
-    elif change_input.lower() == 'y':
-        while True:
-            try:
-                y = int(input(TEMPLATE.format('y')))
-                break
-            except ValueError:
-                print('Error: Input a number for y')
-    elif change_input.lower() == 'z':
-        while True:
-            try:
-                z = int(input(TEMPLATE.format('z')))
-                break
-            except ValueError:
-                print('Error: Input a number for z')
+    elif change_input in ['x', 'y', 'z']:
+        index = variables.index(change_input)
+        value = get_input_value(change_input)
+        values[index] = value
+        x, y, z = values
     else:
         print('Invalid input')
