@@ -1,72 +1,60 @@
-"""Introduction to programming’: Task 3,
-   Kyshynska Taisiia"""
-
 import math as m
+from utils import get_name_string, get_intro_string
 
-print('Introduction to programming’: Task 2')
-print('Kyshynska Taisiia')
+print(get_intro_string())
+print(get_name_string())
 
-TEMPLATE = '{} = '
 
-while True:
-    x_input = input(TEMPLATE.format('x'))
+def get_input_value(variable):
+    while True:
+        value = input(f"{variable} = ")
+        try:
+            return float(value)
+        except ValueError:
+            print("Invalid input. Please input a number.")
+
+
+def calculate_y(x_val, z_val):
     try:
-        x = float(x_input)
-        break
-    except ValueError:
-        print('Invalid input. Please input a number.')
+        y_val = (x_val + m.exp(z_val - 1)) / (1 - (x_val ** 2) * abs(x_val - z_val))
+        if (x_val ** 2) * abs(x_val - z_val) == 1:
+            print('The values of the variables go beyond the scope of the function')
+            return None
+        else:
+            return y_val
+    except ZeroDivisionError:
+        print('The denominator in the expression equals zero')
+        return None
+
+
+x = get_input_value('x')
+z = get_input_value('z')
+
+y = calculate_y(x, z)
 
 while True:
-    z_input = input(TEMPLATE.format('z'))
-    try:
-        z = float(z_input)
-        break
-    except ValueError:
-        print('Invalid input. Please input a number.')
-
-while True:
-    y = (x + m.exp(z - 1)) / (1 - (x ** 2) * abs(x - z))
-    if (x ** 2) * abs(x - z) == 1:
-        print('The values of the variables go beyond the scope of the function')
-        break
-    else:
+    if y is not None:
         print(y)
-        break
 
-while True:
     choice = input('Do you want to change the values of x or z? (y/n) ')
     if choice.lower() == 'y':
         var_choice = input('Which variable do you want to change? (x/z) ')
 
-        while True:
-            new_value = input('Enter the new value: ')
-
-            try:
-                new_value = float(new_value)
-                break
-            except ValueError:
-                print('Invalid input. Please input a number.')
-
-        if var_choice.lower() == 'x':
-            x = new_value
-        elif var_choice.lower() == 'z':
-            z = new_value
+        if var_choice.lower() in ['x', 'z']:
+            if var_choice.lower() == 'x':
+                x = get_input_value('x')
+            else:
+                z = get_input_value('z')
         else:
             print('Invalid input')
 
-        while True:
-            y = (x + m.exp(z - 1)) / (1 - (x ** 2) * abs(x - z))
+        y = calculate_y(x, z)
 
-            if (x ** 2) * abs(x - z) == 1:
-                print('The values of the variables go beyond the scope of the function')
-                break
-            else:
-                print(y)
-                break
+        if y is not None:
+            print(y)
 
     elif choice.lower() == 'n':
         break
 
     else:
         print('Invalid input')
-        print(y)
