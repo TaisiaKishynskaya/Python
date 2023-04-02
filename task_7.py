@@ -17,12 +17,12 @@ class Instructor:
     def __str__(self):
         return f'{self._last_name} {self._first_name}'
 
-    def add_subject_to_semester(self, subject, semester, subjects_per_semester):
+    def add_subject_to_semester(self, subject, semester, subjects_per_semester=None):
         validate_semester_number(semester)
         validate_semester_exists(semester, subjects_per_semester)
         self._subjects_per_semester.setdefault(semester, []).append(subject)
 
-    def remove_subject_from_semester(self, subject, semester, subjects_per_semester):
+    def remove_subject_from_semester(self, subject, semester, subjects_per_semester=None):
         validate_semester_number(semester)
         validate_semester_exists(semester, subjects_per_semester)
         subjects = self._subjects_per_semester.get(semester, [])
@@ -69,11 +69,11 @@ class Instructor:
             for subject in subjects:
                 print(f'\t{subject}')
 
-    def _get_subjects(self, semester, subjects_per_semester):
+    def _get_subjects(self, semester, subjects_per_semester=None):
         validate_semester_exists(semester, subjects_per_semester)
         return self._subjects_per_semester.setdefault(semester, [])
 
-    def add_subjects(self, semester, subjects_per_semester):
+    def add_subjects(self, semester, subjects_per_semester=None):
         subjects = self._get_subjects(semester, subjects_per_semester)
         while True:
             subject = input("Enter a subject to add or 'done' to finish: ")
@@ -82,7 +82,7 @@ class Instructor:
             subjects.append(subject)
         self._subjects_per_semester[semester] = subjects
 
-    def remove_subjects(self, semester, subjects_per_semester):
+    def remove_subjects(self, semester, subjects_per_semester=None):
         subjects = self._get_subjects(semester, subjects_per_semester)
         while True:
             subject = input("Enter a subject to remove or 'done' to finish:")
