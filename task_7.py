@@ -15,8 +15,7 @@ class Instructor:
     def remove_subject_from_semester(self, subject, semester):
         subjects = self.subjects_per_semester.get(semester, [])
         if subject in subjects:
-            subjects.remove(subject)
-            self.subjects_per_semester[semester] = subjects
+            self.subjects_per_semester[semester].remove(subject)
         else:
             raise ValueError(f"{subject} not found in semester {semester}")
 
