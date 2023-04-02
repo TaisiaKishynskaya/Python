@@ -1,8 +1,7 @@
-"""Introduction to programming’: Task 2,
-   Kyshynska Taisiia"""
+from utils import get_name_string, get_intro_string
 
-print('Introduction to programming’: Task 2')
-print('Kyshynska Taisiia')
+get_name_string()
+get_intro_string()
 
 while True:
     try:

@@ -1,20 +1,32 @@
-"""Introduction to programming’: Task 2,
-   Kyshynska Taisiia"""
+from utils import get_name_string, get_intro_string
 
-print('Introduction to programming’: Task 2')
-print('Kyshynska Taisiia')
+get_name_string()
+get_intro_string()
+
+
+def check_exit(exit_str):
+    return exit_str == "exit"
+
 
 while True:
-    try:
-        n = int(input('Enter an integer: '))
+    n = input("Enter an integer: ")
+    if check_exit(n):
         break
-    except ValueError:
-        print("You didn't enter an integer. Please try again.")
 
-k = 0  # digit counter
+    # Проверка на невыполнение условия
+    while not n.isdigit():
+        n = input("Please enter a positive integer without any symbols: ")
+        if check_exit(n):
+            break
 
-while n != 0:
-    n //= 10  # divide by 10 to separate the last digit
-    k += 1  # we increase the counter by 1
+    if check_exit(n):
+        break
 
-print(f'The number of digits in the entered number: {k}')
+    count = 0
+
+    # Считаем количество цифр
+    while n:
+        count += 1
+        n = n[:-1]
+
+    print(f"The number of digits in the entered number: {count}")
