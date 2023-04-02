@@ -32,7 +32,7 @@ while True:
     change_input = input('Do you want to change x, y, z or exit? Input "x", "y", "z" or "exit": ').lower()
     if change_input == 'exit':
         break
-    elif change_input in ['x', 'y', 'z']:
+    elif change_input in variables:
         index = variables.index(change_input)
         value = get_input_value(change_input)
         values[index] = value
