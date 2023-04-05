@@ -1,23 +1,26 @@
+import sys
+
+
 if __name__ == '__main__':
-    filename = "gutenberg.txt"
+    FILE_NAME = 'gutenberg.txt'
 
     try:
-        with open(filename, 'r') as file:
+        with open(FILE_NAME, 'r', encoding='utf-8') as file:
             text = file.read()
     except FileNotFoundError:
-        print(f"Error: File '{filename}' not found.")
-        exit()
+        print(f"Error: File '{FILE_NAME}' not found.")
+        sys.exit()
 
     if not text:
-        print("Error: File is empty.")
-        exit()
+        print('Error: File is empty.')
+        sys.exit()
 
-    # Розділяємо текст на різні тексти за допомогою символу нового рядка
+    # We divide the text into different texts using the new line symbol
     texts = text.split('\n')
 
-    # Підраховуємо кількість входжень слова "the" в кожному тексті
+    # We count the number of occurrences of the word "the" in each text
     for i, t in enumerate(texts):
         if not t:
             continue
-        count = t.lower().count("the")
-        print(f"Text {i + 1}: {count}")
+        count = t.lower().count('the')
+        print(f'Text {i + 1}: {count}')
