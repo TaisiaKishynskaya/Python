@@ -1,5 +1,6 @@
 import math as m
 from utils import print_intro, get_input_value
+
 print_intro()
 
 
@@ -28,6 +29,5 @@ while True:
 
     elif choice.lower() == 'n':
         break
-
     else:
         print('Invalid input')
