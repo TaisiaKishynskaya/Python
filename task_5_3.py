@@ -1,7 +1,6 @@
-from utils import get_name_string, get_intro_string
+from utils import print_intro
 
-get_name_string()
-get_intro_string()
+print_intro()
 
 while True:
     try:

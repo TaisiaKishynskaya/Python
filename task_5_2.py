@@ -1,7 +1,6 @@
-from utils import get_name_string, get_intro_string
+from utils import print_intro
 
-get_name_string()
-get_intro_string()
+print_intro()
 
 
 def check_exit(exit_str):
@@ -14,7 +13,7 @@ if __name__ == '__main__':
         if check_exit(n):
             break
 
-        # Проверка на невыполнение условия
+        # Checking for non-compliance
         while not n.isdigit():
             n = input("Please enter a positive integer without any symbols: ")
             if check_exit(n):
