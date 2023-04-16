@@ -13,7 +13,9 @@ def validation(my_num):
 if __name__ == '__main__':
     while True:
         input_data = input('Input six-digit number or type "exit" to quit: ')
+
         valid_num = validation(input_data)
+
         if valid_num is None:
             print('Input six-digit number!')
         else:
