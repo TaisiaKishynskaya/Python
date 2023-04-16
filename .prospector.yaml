@@ -5,6 +5,8 @@ ignore:
   - ^docs/
   - ^build/
   - venv
+  - archive.ics.uci.edu.
+  - .pytest_cache/
 
 test-warnings: true
 
