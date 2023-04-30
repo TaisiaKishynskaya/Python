@@ -1,30 +1,28 @@
-def input_number():
-    my_num = input('Input six-digit number or type "exit" to quit: ')
-    try:
-        my_num = int(my_num)
-    except ValueError:
-        pass
-    return my_num
+import sys
+from utils import print_intro
+
+print_intro()
+
+
+def validate_input(my_num):
+    if my_num.isdigit() and len(my_num) == 6:
+        return my_num
+    return None
+
+
+def check_lucky_num(num):
+    if num is not None:
+        result = 'lucky' if sum(map(int, num[:3])) == sum(map(int, num[3:])) else 'unlucky'
+        print(f'This number is {result}')
+    else:
+        print('Input six-digit number!')
 
 
 if __name__ == '__main__':
-    from utils import get_intro_string, get_name_string
-
-    print(get_intro_string())
-    print(get_name_string())
-
     while True:
-        my_str = input_number()
+        input_data = input('Input six-digit number or type "exit" to quit: ')
+        valid_num = validate_input(input_data)
+        check_lucky_num(valid_num)
 
-        if len(str(my_str)) == 6:
-            RESULT = 'lucky' if sum(map(int, str(my_str)[:3])) == sum(map(int, str(my_str)[3:])) else 'unlucky'
-            print(f'This number is {RESULT}')
-        elif str(my_str).lower() == 'exit':
-            break
-        elif not isinstance(my_str, int):
-            print('Input number!')
-            input_number()
-        else:
-            print('Input six-digit number!')
-
-    print(my_str)
+        if str(input_data).lower() == 'exit':
+            sys.exit()
