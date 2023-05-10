@@ -1,10 +1,11 @@
-import unittest
+from unittest.mock import patch
+import pytest
+
+from task_5_2 import validate_isdigit, count_digits, check_exit
 
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)  # add assertion here
-
-
-if __name__ == '__main__':
-    unittest.main()
+@patch('task_5_2.input', side_effect=['-1', '1.1', '0'])
+def test_validate_isdigit(inp_mock):
+    actual = validate_isdigit('-')
+    expected = '0'
+    assert actual == expected
