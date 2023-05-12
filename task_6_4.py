@@ -1,3 +1,6 @@
+FILE_NAME = 'learning_python.txt'
+
+
 def open_file(file_name):
     try:
         with open(file_name, encoding='utf-8') as it_file:
@@ -25,7 +28,6 @@ def replace_and_print(our_lines):
 
 
 if __name__ == '__main__':
-    FILE_NAME = 'learning_python.txt'
     file = open_file(FILE_NAME)
     lines = read_file(file)
     replace_and_print(lines)
