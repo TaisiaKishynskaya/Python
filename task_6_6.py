@@ -13,23 +13,22 @@ def read_file(file_name):
     return content
 
 
+def read_and_split_file(file_name):
+    try:
+        return read_file(file_name).split('\n')
+    except FileNotFoundError:
+        print(f"Error: File '{file_name}' not found.")
+        sys.exit()
+
+
 def count_occurrences(arr_texts):
-    for i, t in enumerate(arr_texts):
-        if not t:
+    for i, text in enumerate(arr_texts):
+        if not text:
             continue
-        count = t.lower().count('the')
+        count = text.lower().count('the')
         print(f'Text {i + 1}: {count}')
 
 
 if __name__ == '__main__':
-    text = read_file(FILE_NAME)
-
-    if not text:
-        print('Error: File is empty.')
-        sys.exit()
-
-    # We divide the text into different texts using the new line symbol
-    texts = text.split('\n')
-
-    # We count the number of occurrences of the word "the" in each text
-    count_occurrences(texts)
+    texts = read_and_split_file(FILE_NAME)
+    count_occurrences(texts)  # We count the number of occurrences of the word "the" in each text
