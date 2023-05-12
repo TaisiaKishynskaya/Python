@@ -36,4 +36,3 @@ if __name__ == '__main__':
     print('Enter guest names.')
     print('Enter "q" to quit.')
     collect_guest_names(FILE_NAME)
-
