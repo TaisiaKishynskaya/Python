@@ -1,3 +1,6 @@
+FILE_NAME = 'guest_book.txt'
+
+
 def get_guest_name():
     while True:
         try:
@@ -20,15 +23,17 @@ def write_guest_name_to_file(the_filename, the_name):
         print(f'Error writing to file {the_filename}.')
 
 
-if __name__ == '__main__':
-    FILE_NAME = 'guest_book.txt'
-
-    print('Enter guest names.')
-    print('Enter "q" to quit.')
-
+def collect_guest_names(the_filename):
     while True:
         name = get_guest_name()
         if name == 'q':
             break
         print(f'Welcome, {name.title()}!')
-        write_guest_name_to_file(FILE_NAME, name)
+        write_guest_name_to_file(the_filename, name)
+
+
+if __name__ == '__main__':
+    print('Enter guest names.')
+    print('Enter "q" to quit.')
+    collect_guest_names(FILE_NAME)
+
