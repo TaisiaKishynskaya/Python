@@ -42,26 +42,28 @@ def write_result_to_file(text):
     """Функция для записи результата в файл."""
     filename = 'result.txt'
     if os.path.exists(filename):
-        choice = input(f'Файл {filename} уже существует, перезаписать? (y/n): ')
-        check_yes_or_no(choice)
+        if not get_yes_no_input(f'Файл {filename} уже существует, перезаписать? (y/n): '):
+            return False
     write_to_file(filename, text)
     print(f'Результат записан в файл {filename}.')
 
 
 def ask_to_continue():
     """Функция для запроса у пользователя продолжения выполнения программы."""
-    choice = input('Хотите продолжить выполнение программы? (y/n): ').lower()
-    check_yes_or_no(choice)
+    if get_yes_no_input(f'Хотите продолжить работу программы? (y/n): '):
+        return True
 
 
-def check_yes_or_no(choice):
+def get_yes_no_input(prompt):
+    """Функция для получения от пользователя ответа y/n на заданный вопрос."""
     while True:
-        if choice.lower() == 'n':
+        choice = input(prompt).lower()
+        if choice == 'n':
             return False
-        elif choice.lower() == 'y':
+        elif choice == 'y':
             return True
         else:
-            choice = input('Ошибка: неверный ввод. Введите "y" или "n": ')
+            print('Ошибка: неверный ввод. Введите "y" или "n".')
             continue
 
 
