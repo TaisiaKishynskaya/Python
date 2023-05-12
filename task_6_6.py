@@ -13,8 +13,8 @@ def read_file(file_name):
     return content
 
 
-def count_occurrences(texts):
-    for i, t in enumerate(texts):
+def count_occurrences(arr_texts):
+    for i, t in enumerate(arr_texts):
         if not t:
             continue
         count = t.lower().count('the')
