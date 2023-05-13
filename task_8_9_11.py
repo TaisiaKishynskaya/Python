@@ -18,7 +18,7 @@ def convert_binary_to_decimal():
     decimal_num = 0
     power = 0  # to keep track of the current power of two
 
-    # to loop through the digits in reverse order, coz we start with the values of the smaller digits
+    # loop through the digits in reverse order,coz start with the values of the smaller digits
     for digit in binary_num[::-1]:
         decimal_num += int(digit) * 2 ** power
         power += 1  # increases with each new digit in the binary number
