@@ -25,6 +25,6 @@ def print_days_in_month(month, days_in_month):
 
 
 if __name__ == '__main__':
-    month_name = input("Enter month name: ")
+    month_name = input('Enter month name: ')
     days = month_days.get(month_name.lower())  # Get the number of days in a month
     print_days_in_month(month_name, days)
