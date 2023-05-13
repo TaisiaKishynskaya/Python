@@ -1,3 +1,7 @@
+from utils import print_intro
+
+print_intro()
+
 month_days = {'january': 31,
               'february': '28 or 29',
               'march': 31,
