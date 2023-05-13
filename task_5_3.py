@@ -1,29 +1,30 @@
 from utils import print_intro
 
 print_intro()
+
 EPSILON = 0.0001  # accuracy
 
 
 def get_input():
     while True:
         try:
-            a = float(input('Enter a positive number a: '))
-            x1 = float(input('Enter any leading positive number x1: '))
-            if a <= 0 or x1 <= 0:
+            var_a = float(input('Enter a positive number a: '))
+            variable_x1 = float(input('Enter any leading positive number x1: '))
+            if var_a <= 0 or variable_x1 <= 0:
                 raise ValueError
-            return a, x1
+            return var_a, variable_x1
         except ValueError:
             print("Invalid input, please enter a positive number.")
 
 
-def calculate_geron_sqrt(x1, a):
-    xn = x1
-    xn1 = 0.5 * (xn + a / xn)  # the first term of the sequence
+def calculate_geron_sqrt(var_x1, variable_a):
+    var_xn = var_x1
+    var_xn1 = 0.5 * (var_xn + variable_a / var_xn)  # the first term of the sequence
 
-    while abs(xn1 - xn) > EPSILON:  # until the required accuracy is achieved
-        xn = xn1
-        xn1 = 0.5 * (xn + a / xn)
-    return round(xn1, 4)
+    while abs(var_xn1 - var_xn) > EPSILON:  # until the required accuracy is achieved
+        var_xn = var_xn1
+        var_xn1 = 0.5 * (var_xn + variable_a / var_xn)
+    return round(var_xn1, 4)
 
 
 if __name__ == '__main__':

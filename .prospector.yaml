@@ -5,6 +5,7 @@ ignore:
   - ^docs/
   - ^build/
   - venv
+  - ^tests/
 
 test-warnings: true
 
