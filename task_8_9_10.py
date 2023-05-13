@@ -1,3 +1,8 @@
+from utils import print_intro
+
+print_intro()
+
+
 def get_position():
     while True:
         position = input("Enter the position of the chess piece (e.g. a1): ")
