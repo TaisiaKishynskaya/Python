@@ -31,8 +31,7 @@ def create_db():
         cursor.execute('CREATE TABLE ratings (id INTEGER PRIMARY KEY, '
                        'title VARCHAR(20), year INT, rating FLOAT)')
 
-    # Close the connection
-    conn.close()
+    conn.close()  # Close the connection
 
 
 def insert_into_db():
@@ -65,7 +64,7 @@ def display_by_rating():
 
 
 if __name__ == '__main__':
-    # create_csv_file()
+    create_csv_file()
     create_db()
     insert_into_db()
     display_by_title()
