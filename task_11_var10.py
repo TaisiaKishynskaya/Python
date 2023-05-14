@@ -1,27 +1,29 @@
 import re
+from utils import print_intro
 
-# Read the chat log from the file
-with open("chat.log", "r") as f:
-    chat_log = f.read()
+print_intro()
 
-# Find all words in the chat log
-words = re.findall(r"\b\w+\b", chat_log)
 
-# Find all smileys in the chat log
-smileys = re.findall(r"[;:]-?[)(]", chat_log)
+def calculate_emotion_index():
+    index = 0
+    for smiley in smileys:
+        if smiley in ordinary_smileys:
+            index += 1
+        else:
+            index += 2
+    index = index / len(words)
+    return index
 
-# Define a list of exceptional smileys
-exceptional_smileys = [":(", ';(', ":)", ";)", ":D"]
 
-# Calculate the emotion index
-emotion_index = 0
-for smiley in smileys:
-    if smiley in exceptional_smileys:
-        emotion_index += 2
-    else:
-        emotion_index += 1
+if __name__ == '__main__':
+    with open('chat.txt', 'r') as file:
+        chat = file.read()
 
-emotion_index = emotion_index / len(words)
+    words = re.findall(r'\b\w+\b', chat)  # Find all words in the chat log
+    smileys = re.findall(r'[;:xB]-?[)(DP0]', chat)  # Find all smileys in the chat log
+    ordinary_smileys = re.findall(r'[;:]-?[)(]', chat)  # Define a list of ordinary smileys
 
-print(f"There are {len(words)} words and {len(smileys)} smileys in the chat log.")
-print(f"The emotion index of the chat log is {emotion_index:.2f}.")
+    emotion_index = calculate_emotion_index()
+
+    print(f'There are {len(words)} words and {len(smileys)} smileys in the chat.')
+    print(f'The emotion index of the chat is {emotion_index:.2f}.')
