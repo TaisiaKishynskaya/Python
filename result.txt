@@ -1,1 +1,1 @@
-Число 9 - odd.
+Число 0 - neither even nor odd.
