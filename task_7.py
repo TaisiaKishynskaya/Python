@@ -83,14 +83,13 @@ class Instructor:
 
     def remove_subjects(self, semester, subjects_per_semester=None):
         subjects = self._get_subjects(semester, subjects_per_semester)
-        while True:
-            subject = input("Enter a subject to remove or 'done' to finish:")
-            if subject.lower() == 'done':
-                break
-            if subject in subjects:
-                subjects.remove(subject)
-            else:
-                print(f'{subject} is not found in semester {semester}')
+    subject = ''
+    while subject.lower() != 'done':
+        subject = input("Enter a subject to remove or 'done' to finish:")
+        if subject in subjects:
+            subjects.remove(subject)
+        else:
+            print(f'{subject} is not found in semester {semester}')
         self._subjects_per_semester[semester] = subjects
         print(f'Removed {len(subjects)} subjects from semester {semester}')
 
