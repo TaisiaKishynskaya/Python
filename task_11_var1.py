@@ -3,7 +3,7 @@ from utils import print_intro
 
 print_intro()
 
-file_name = 'dates.txt'
+FILE_NAME = 'dates.txt'
 
 
 def normalize_dates(name_file):
@@ -29,4 +29,4 @@ def normalize_dates(name_file):
 
 
 if __name__ == '__main__':
-    normalize_dates(file_name)
+    normalize_dates(FILE_NAME)

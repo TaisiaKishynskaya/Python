@@ -16,7 +16,7 @@ def calculate_emotion_index():
 
 
 if __name__ == '__main__':
-    with open('chat.txt', 'r') as file:
+    with open('chat.txt', 'r', encoding='utf-8') as file:
         chat = file.read()
 
     words = re.findall(r'\b\w+\b', chat)  # Find all words in the chat log
