@@ -53,9 +53,8 @@ class Instructor:
 
     @property
     def semester_with_most_subjects(self):
-        max_semester = max(self._subjects_per_semester.keys(),
+        return  max(self._subjects_per_semester.keys(),
                            key=lambda semester: len(self._subjects_per_semester[semester]))
-        return max_semester
 
     def print_semester_with_most_subjects(self):
         max_semester = self.semester_with_most_subjects
