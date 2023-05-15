@@ -8,8 +8,8 @@ def read_file(file_name):
 
 
 def count_occurrences(text):
-    for i, text in enumerate(text):
-        count = text.lower().count('the')
+    for i, item in enumerate(text):
+        count = item.lower().count('the')
         print(f'Text {i + 1}: {count}')
 
 

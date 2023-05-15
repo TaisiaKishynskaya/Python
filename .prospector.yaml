@@ -5,6 +5,8 @@ ignore:
   - ^docs/
   - ^build/
   - venv
+  - .pytest_cache
+  - tests
 
 test-warnings: true
 
