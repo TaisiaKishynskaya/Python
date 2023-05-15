@@ -12,9 +12,7 @@ def validate_number(number_string):
 def validate_input(input_lines):
     """Check that the list of input_lines is a valid list of numbers separated by a newline character"""
     # pylint: disable=unused-variable
-    for i, the_line in enumerate(input_lines):
-        if not isinstance(the_line, str):  # Check that the line is a string before converting to float
-            return False
+    for the_line in input_lines:
         if the_line.strip() == '':
             continue
         if not validate_number(the_line.strip()):
@@ -63,11 +61,8 @@ def open_to_write(summing_numbers):
 
 if __name__ == '__main__':
     numbers = open_to_read()
-
     # calculate the sum of numbers
     sum_numbers = sum(numbers)
-
     # print the sum of numbers to the screen
     print(f'Sum of numbers: {sum_numbers}')
-
     open_to_write(sum_numbers)
