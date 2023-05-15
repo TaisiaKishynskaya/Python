@@ -42,7 +42,6 @@ def open_to_read():
 
     except FileNotFoundError:
         print("File 'numbers.txt' not found.")
-        sys.exit()
     return arr_numbers
 
 
