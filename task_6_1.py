@@ -32,17 +32,16 @@ def open_to_read():
         with open('numbers.txt', 'r', encoding='utf-8') as numbers_file:
             # read all lines of the file and convert them into valid numbers
             lines = [line.strip() for line in numbers_file.readlines()]
+            validate_input_file(lines)
             arr_numbers = [float(line) for line in lines if validate_number(line)]
             invalid_numbers = [line for line in lines if not validate_number(line)]
             for number in invalid_numbers:
                 print(f'Invalid number: {number}')
 
-            # validate the input file
-            validate_input_file(lines)
-
     except FileNotFoundError:
         print("File 'numbers.txt' not found.")
     return arr_numbers
+
 
 
 def open_to_write(summing_numbers):
