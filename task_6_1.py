@@ -11,7 +11,6 @@ def validate_number(number_string):
 
 def validate_input(input_lines):
     """Check that the list of input_lines is a valid list of numbers separated by a newline character"""
-    # pylint: disable=unused-variable
     for the_line in input_lines:
         if the_line.strip() == '':
             continue
