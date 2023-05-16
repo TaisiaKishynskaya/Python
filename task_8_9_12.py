@@ -36,10 +36,8 @@ def play_game():
     print(f'You chose {user_choice}. The computer chose {computer_choice}.')
 
     winner = determine_winner(user_choice, computer_choice)
-    if winner == TIE:
-        print(f"It's a {TIE}!")
-    else:
-        print(f'The {winner} wins!')
+    massage = f"It's a {TIE}!" if winner == TIE else f'The {winner} wins!'
+    print(massage)
 
 
 if __name__ == '__main__':
