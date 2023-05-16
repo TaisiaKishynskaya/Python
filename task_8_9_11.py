@@ -1,15 +1,6 @@
-from utils import print_intro
+from utils import print_intro, validate_number_input
 
 print_intro()
-
-
-def validate_number_input(input_str):
-    try:
-        int(input_str)
-    except ValueError:
-        print('Invalid input. Please enter a valid number.')
-        return False
-    return True
 
 
 def get_valid_number_input(message):
