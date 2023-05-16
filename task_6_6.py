@@ -1,10 +1,9 @@
 FILE_NAME = 'gutenberg.txt'
 
 
-def read_file(file_name):
-    with open(file_name, 'r', encoding='utf-8') as file:
-        content = file.read()
-    return content
+def read_file():
+    with open(FILE_NAME, 'r', encoding='utf-8') as file:
+        return file.read()
 
 
 def count_occurrences(text):
@@ -14,5 +13,5 @@ def count_occurrences(text):
 
 
 if __name__ == '__main__':
-    texts = read_file(FILE_NAME).split('\n')
+    texts = read_file().split('\n')
     count_occurrences(texts)
