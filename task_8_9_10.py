@@ -12,8 +12,10 @@ def get_position():
             return position[0], int(position[1])
 
 
+# pylint: disable=invalid-name
 def determine_color(let, num):
-    return 'black' if (ord(let) + num) % 2 == 0 else 'white'
+    color_cell = 'black' if (ord(let) + num) % 2 == 0 else 'white'
+    return color_cell
 
 
 if __name__ == '__main__':

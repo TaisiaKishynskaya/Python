@@ -6,8 +6,7 @@ print_intro()
 def validate_number_input(prompt):
     while True:
         try:
-            value = float(input(prompt))
-            return value
+            return float(input(prompt))
         except ValueError:
             print('Invalid input. Please enter a valid number.')
 
@@ -21,24 +20,22 @@ def validate_operations(first_number, second_number, operation_func):
 
 
 def calculate(num1, num2, oper):
-    operations_result = None
+    # pylint: disable=too-many-return-statements
     if oper == '+':
-        operations_result = num1 + num2
-    elif oper == '-':
-        operations_result = num1 - num2
-    elif oper == '*':
-        operations_result = num1 * num2
-    elif oper == '/':
-        operations_result = validate_operations(num1, num2, lambda x, y: x / y)
-    elif oper == 'mod':
-        operations_result = validate_operations(num1, num2, lambda x, y: x % y)
-    elif oper == 'pow':
-        operations_result = num1 ** num2
-    elif oper == 'div':
-        operations_result = validate_operations(num1, num2, lambda x, y: x // y)
-    else:
-        print('Invalid operation')
-    return operations_result
+        return num1 + num2
+    if oper == '-':
+        return num1 - num2
+    if oper == '*':
+        return num1 * num2
+    if oper == '/':
+        return validate_operations(num1, num2, lambda x, y: x / y)
+    if oper == 'mod':
+        return validate_operations(num1, num2, lambda x, y: x % y)
+    if oper == 'pow':
+        return num1 ** num2
+    if oper == 'div':
+        return validate_operations(num1, num2, lambda x, y: x // y)
+    return None
 
 
 if __name__ == '__main__':

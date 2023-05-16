@@ -19,12 +19,13 @@ def get_user_choice():
         print('Invalid input. Please choose rock, paper, or scissors.')
 
 
+# pylint: disable=too-many-boolean-expressions
 def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
         return TIE
-    if user_choice == ROCK and computer_choice == SCISSORS or \
-            user_choice == PAPER and computer_choice == ROCK or \
-            user_choice == SCISSORS and computer_choice == PAPER:
+    if (user_choice == ROCK and computer_choice == SCISSORS) or \
+            (user_choice == PAPER and computer_choice == ROCK) or \
+            (user_choice == SCISSORS and computer_choice == PAPER):
         return 'user'
     return 'computer'
 
