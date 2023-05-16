@@ -1,8 +1,15 @@
 import re
 
-with open('text.txt', 'r', encoding='utf-8') as file:
-    text = file.read()
 
-sentences = re.split(r'[.?!]\s', text)
+def read_file():
+    with open('text.txt', 'r', encoding='utf-8') as file:
+        return file.read()
 
-print(sentences)
+
+def main():
+    sentences = re.split(r'[.?!]\s', read_file())
+    print(sentences)
+
+
+if __name__ == '__main__':
+    main()

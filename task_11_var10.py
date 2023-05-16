@@ -5,13 +5,7 @@ print_intro()
 
 
 def calculate_emotion_index():
-    index = 0
-    for smiley in smileys:
-        if smiley in ordinary_smileys:
-            index += 1
-        else:
-            index += 2
-    index = index / len(words)
+    index = sum(1 if smiley in ordinary_smileys else 2 for smiley in smileys) / len(words)
     return index
 
 
