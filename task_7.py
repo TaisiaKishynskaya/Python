@@ -10,12 +10,12 @@ class Instructor:
     @staticmethod
     def validate_semester_number(semester):
         if not isinstance(semester, int) or semester <= 0:
-            raise ValueError("Semester number must be a positive integer")
+            raise ValueError('Semester number must be a positive integer')
 
     @staticmethod
     def validate_semester_exists(semester, subjects_per_semester):
         if semester not in subjects_per_semester:
-            raise ValueError(f"Semester {semester} does not exist")
+            raise ValueError(f'Semester {semester} does not exist')
 
     def add_subject_to_semester(self, subject, semester, subjects_per_semester=None):
         self.validate_semester_number(semester)
@@ -23,10 +23,9 @@ class Instructor:
         self._subjects_per_semester.setdefault(semester, []).append(subject)
 
     def remove_subject_from_semester(self, subject, semester):
-        if semester not in self._subjects_per_semester:
-            raise ValueError(f"No semester {semester} found")
+        self.validate_semester_exists(semester, self._subjects_per_semester)
         if subject not in self._subjects_per_semester[semester]:
-            raise ValueError(f"No {subject} found in semester {semester}")
+            raise ValueError(f'No {subject} found in semester {semester}')
         self._subjects_per_semester[semester].remove(subject)
 
     def update_semester(self, semester, subjects=None, subjects_per_semester=None):
@@ -99,13 +98,9 @@ class Instructor:
         except ValueError:
             print('Invalid semester number. Please enter an integer.')
             return
-        if semester not in self._subjects_per_semester:
-            self._subjects_per_semester[semester] = []
+        if semester in self._subjects_per_semester:
+            print(f'Semester {semester} already exists. Adding subjects to the existing semester.')
         else:
-            print(f'Semester {semester} already exists. Adding subjects to existing semester.')
-        while True:
-            subject = input("Enter a subject for this semester (or 'done' to finish): ")
-            if subject == 'done':
-                break
-            self._subjects_per_semester[semester].append(subject)
+            self.update_semester(semester, subjects=[])
+        self.add_subjects(semester)
         print(f'Added {len(self._subjects_per_semester[semester])} subjects to semester {semester}')
