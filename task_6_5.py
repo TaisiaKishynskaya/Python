@@ -3,8 +3,7 @@ FILE_NAME = 'guest_book.txt'
 
 def get_guest_name():
     while True:
-        your_name = input('Guest name: ')
-        return your_name
+        return input('Guest name: ')
 
 
 def collect_guest_names(the_filename):
