@@ -7,12 +7,12 @@ def get_guest_name():
 
 
 def collect_guest_names(the_filename):
-    while True:
-        name = get_guest_name()
-        if name == 'q':
-            break
-        print(f'Welcome, {name.title()}!')
-        with open(the_filename, 'a', encoding='utf-8') as the_file_object:
+    with open(the_filename, 'a', encoding='utf-8') as the_file_object:
+        while True:
+            name = get_guest_name()
+            if name == 'q':
+                break
+            print(f'Welcome, {name.title()}!')
             the_file_object.write(f'{name.title()} visited our event.\n')
 
 
