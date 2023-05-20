@@ -8,6 +8,7 @@ ROCK = 'rock'
 PAPER = 'paper'
 SCISSORS = 'scissors'
 CHOISES = [ROCK, PAPER, SCISSORS]
+WIN_COMBINATIONS = ((ROCK, SCISSORS), (PAPER, ROCK), (SCISSORS, PAPER))
 TIE = 'tie'
 
 
@@ -23,9 +24,7 @@ def get_user_choice():
 def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
         return TIE
-    if (user_choice == ROCK and computer_choice == SCISSORS) or \
-            (user_choice == PAPER and computer_choice == ROCK) or \
-            (user_choice == SCISSORS and computer_choice == PAPER):
+    if (user_choice, computer_choice) in WIN_COMBINATIONS:
         return 'user'
     return 'computer'
 

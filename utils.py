@@ -3,10 +3,9 @@ def print_intro():
     print('Kyshynska Taisiia')
 
 
-def validate_number_input(input_str):
-    try:
-        int(input_str)
-    except ValueError:
-        print('Invalid input. Please enter a valid number.')
-        return False
-    return True
+def get_valid_number_input(variable):
+    while True:
+        try:
+            return int(input(variable))
+        except ValueError:
+            print("Invalid input. Please input a number.")

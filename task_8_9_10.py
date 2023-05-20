@@ -1,3 +1,4 @@
+from itertools import product
 from utils import print_intro
 
 print_intro()
@@ -6,18 +7,17 @@ print_intro()
 def get_position():
     while True:
         position = input('Enter the position of the chess piece (e.g. a1): ')
-        if len(position) != 2 or position[0] not in 'abcdefgh' or position[1] not in '12345678':
-            print('Invalid input. Please enter a letter between a-h and a number between 1-8.')
-        else:
-            return position[0], int(position[1])
+        if position in (''.join(i) for i in product('abcdefgh', '12345678')):
+            return position
+        print('Invalid input. Please enter a letter between a-h and a number between 1-8.')
 
 
-# pylint: disable=invalid-name
 def determine_color(let, num):
-    color_cell = 'black' if (ord(let) + num) % 2 == 0 else 'white'
+    color_cell = 'black' if (ord(let) + ord(num)) % 2 else 'white'
     return color_cell
 
 
+# pylint: disable=invalid-name
 if __name__ == '__main__':
     letter, number = get_position()
     color = determine_color(letter, number)

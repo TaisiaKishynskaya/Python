@@ -45,5 +45,5 @@ if __name__ == '__main__':
 
     result = calculate(first_num, second_num, operation)
 
-    if result is not None:
+    if result:
         print(result)
