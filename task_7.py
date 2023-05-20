@@ -82,12 +82,14 @@ class Instructor:
         subjects = self._get_subjects(semester, subjects_per_semester)
         while True:
             subject = input("Enter a subject to remove or 'done' to finish:")
+
             if subject.lower() == 'done':
                 break
             if subject in subjects:
                 subjects.remove(subject)
             else:
                 print(f'{subject} is not found in semester {semester}')
+
         self._subjects_per_semester[semester] = subjects
         print(f'Removed {len(subjects)} subjects from semester {semester}')
 
@@ -98,9 +100,11 @@ class Instructor:
         except ValueError:
             print('Invalid semester number. Please enter an integer.')
             return
+
         if semester in self._subjects_per_semester:
             print(f'Semester {semester} already exists. Adding subjects to the existing semester.')
         else:
             self.update_semester(semester, subjects=[])
+
         self.add_subjects(semester)
         print(f'Added {len(self._subjects_per_semester[semester])} subjects to semester {semester}')
