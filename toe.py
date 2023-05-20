@@ -34,18 +34,18 @@ class MainApp(MDApp):
 
     def disable_all_buttons(self):
         # Disable the buttons
-        for button_id in self.BUTTON_IDS:
-            self.root.ids[button_id].disabled = True
+        for b_id in range(1, 10):
+            self.root.ids[f'btn{b_id}'].disabled = True
 
     def win(self):
-        lines = [[self.root.ids[button_id] for button_id in self.BUTTON_IDS[:3]],  # Across (1st row)
-                 [self.root.ids[button_id] for button_id in self.BUTTON_IDS[3:6]],  # Across (2nd row)
-                 [self.root.ids[button_id] for button_id in self.BUTTON_IDS[6:9]],  # Across (3rd row)
-                 [self.root.ids[button_id] for button_id in self.BUTTON_IDS[::3]],  # Down (1st column)
-                 [self.root.ids[button_id] for button_id in self.BUTTON_IDS[1::3]],  # Down (2nd column)
-                 [self.root.ids[button_id] for button_id in self.BUTTON_IDS[2::3]],  # Down (3rd column)
-                 [self.root.ids[button_id] for button_id in self.BUTTON_IDS[::4]],  # Diagonal(top-left to bottom-right)
-                 [self.root.ids[button_id] for button_id in self.BUTTON_IDS[2:7:2]]]  # Diagonal(top-r to bottom-l)
+        lines = [[self.root.ids[f'btn{button_id}'] for button_id in range(1, 4)],  # Across (1st row)
+                 [self.root.ids[f'btn{button_id}'] for button_id in range(4, 7)],  # Across (2nd row)
+                 [self.root.ids[f'btn{button_id}'] for button_id in range(7, 10)],  # Across (3rd row)
+                 [self.root.ids[f'btn{button_id}'] for button_id in range(1, 10, 3)],  # Down (1st column)
+                 [self.root.ids[f'btn{button_id}'] for button_id in range(2, 10, 3)],  # Down (2nd column)
+                 [self.root.ids[f'btn{button_id}'] for button_id in range(3, 10, 3)],  # Down (3rd column)
+                 [self.root.ids[f'btn{button_id}'] for button_id in range(1, 10, 4)],  # Diagonal (top-left to bottom-r)
+                 [self.root.ids[f'btn{button_id}'] for button_id in range(3, 8, 2)]]  # Diagonal (top-r to bottom-left)
         for line in lines:
             if line[0].text != '' and all(btn.text == line[0].text for btn in line):
                 self.end_game(*line)
@@ -68,10 +68,10 @@ class MainApp(MDApp):
     def restart(self):
         self.turn = 'X'  # Reset Who`s turn it is
 
-        for button_id in self.BUTTON_IDS:
-            self.root.ids[button_id].disabled = False  # Enable the buttons
-            self.root.ids[button_id].text = ''  # Clear the buttons
-            self.root.ids[button_id].color = 'green'  # Reset the buttons colors
+        for button_id in range(1, 10):
+            self.root.ids[f'btn{button_id}'].disabled = False  # Enable the buttons
+            self.root.ids[f'btn{button_id}'].text = ''  # Clear the buttons
+            self.root.ids[f'btn{button_id}'].color = 'green'  # Reset the buttons colors
 
         self.root.ids.score.text = 'X GOES FIRST!'  # Reset the score Label
         self.winner = False  # Reset rhe winner variable
