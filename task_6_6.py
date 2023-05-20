@@ -1,17 +1,13 @@
-FILE_NAME = 'gutenberg.txt'
-
-
 def read_file():
-    with open(FILE_NAME, 'r', encoding='utf-8') as file:
-        return file.read()
+    with open('gutenberg.txt', 'r', encoding='utf-8') as file:
+        return file.readlines()
 
 
-def count_occurrences(text):
-    for i, item in enumerate(text):
-        count = item.lower().count('the')
+def count_occurrences():
+    for i, line in enumerate(read_file()):
+        count = line.lower().count('the')
         print(f'Text {i + 1}: {count}')
 
 
 if __name__ == '__main__':
-    texts = read_file().split('\n')
-    count_occurrences(texts)
+    count_occurrences()

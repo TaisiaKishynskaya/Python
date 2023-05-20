@@ -2,10 +2,9 @@ FILENAME = 'result.txt'
 
 
 def check_even_odd(num):
-    result = 'neither even nor odd'
-    if num != 0:
-        result = 'odd' if num % 2 == 1 else 'even'
-    return f'Число {num} - {result}.'
+    if not num:
+        return f'Number {num} - {"odd" if num % 2 == 1 else "even"}.'
+    return 'neither even nor odd'
 
 
 def write_result_to_file(text):
