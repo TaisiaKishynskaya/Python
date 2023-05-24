@@ -1,5 +1,5 @@
 name: after-push checks
-run-name: 4checks
+run-name: 5checks
 on:
   workflow_dispatch:
   push:
@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.9
+      - name: Set up Python 3.11.2
         uses: actions/setup-python@v3
         with:
           python-version: "3.11.2"
