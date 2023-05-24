@@ -6,6 +6,8 @@ ignore:
   - ^build/
   - venv
   - tests
+  - archive.ics.uci.edu.
+  - .pytest_cache/
 
 test-warnings: true
 
@@ -15,7 +17,7 @@ pep8:
     # style checking
     run: true
     options:
-        max-line-length: 100
+        max-line-length: 150
 
 pylint:
     # static analysis and then some
