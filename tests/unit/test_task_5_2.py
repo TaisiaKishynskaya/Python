@@ -15,4 +15,3 @@ def test_count_digits(inp_mock):
     actual = count_digits(validate_isdigit(''))
     expected = 0
     assert actual == expected
-
