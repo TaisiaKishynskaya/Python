@@ -7,7 +7,7 @@ print_intro()
 # Checking for non-compliance
 def validate_isdigit(variable_n):
     while not variable_n.isdigit():
-        variable_n = input("Please enter a positive integer without any symbols: ")
+        variable_n = input('Please enter a positive integer without any symbols: ')
     return variable_n
 
 
@@ -22,7 +22,7 @@ def count_digits(var_n):
 
 
 def check_exit(exit_str):
-    if exit_str == "exit":
+    if exit_str == 'exit':
         sys.exit(0)
 
 
