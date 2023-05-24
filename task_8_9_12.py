@@ -20,7 +20,6 @@ def get_user_choice():
         print('Invalid input. Please choose rock, paper, or scissors.')
 
 
-# pylint: disable=too-many-boolean-expressions
 def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
         return TIE

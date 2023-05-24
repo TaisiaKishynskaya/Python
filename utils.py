@@ -3,9 +3,9 @@ def print_intro():
     print('Kyshynska Taisiia')
 
 
-def get_valid_number_input(variable):
+def get_valid_number_input(variable, cast_func):
     while True:
         try:
-            return int(input(variable))
+            return cast_func(input(variable))
         except ValueError:
             print("Invalid input. Please input a number.")

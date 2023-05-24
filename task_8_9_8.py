@@ -1,14 +1,6 @@
-from utils import print_intro
+from utils import print_intro, get_valid_number_input
 
 print_intro()
-
-
-def validate_number_input(prompt):
-    while True:
-        try:
-            return float(input(prompt))
-        except ValueError:
-            print('Invalid input. Please enter a valid number.')
 
 
 def validate_operations(first_number, second_number, operation_func):
@@ -39,8 +31,8 @@ def calculate(num1, num2, oper):
 
 
 if __name__ == '__main__':
-    first_num = validate_number_input('Enter the first number: ')
-    second_num = validate_number_input('Enter the second number: ')
+    first_num = get_valid_number_input('Enter the first number: ', float)
+    second_num = get_valid_number_input('Enter the second number: ', float)
     operation = input('Enter the operation (+, -, /, *, mod, pow, div): ')
 
     result = calculate(first_num, second_num, operation)

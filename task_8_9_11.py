@@ -4,7 +4,7 @@ print_intro()
 
 
 def convert_decimal_to_binary():
-    decimal_num = dec_num = get_valid_number_input('Enter a decimal number: ')
+    decimal_num = dec_num = get_valid_number_input('Enter a decimal number: ', int)
 
     binary_num = ''
     while decimal_num > 0:
