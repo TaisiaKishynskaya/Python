@@ -1,5 +1,6 @@
 from settings import *
 
+"""Задали карту в виде списка, элементы которого строки, а буквы в них - стены, точки - пустое место"""
 text_map = [
     'WWWWWWWWWWWW',
     'W......W...W',
@@ -11,8 +12,10 @@ text_map = [
     'WWWWWWWWWWWW'
 ]
 
+"""Держим координаты стен в структуре данных типа множество.
+   Потом это поможет ускорить проверку на предмет пересечения со стеной"""
 world_map = set()
-for j, row in enumerate(text_map):
-    for i, char in enumerate(row):
-        if char == 'W':
-            world_map.add((i * TILE, j * TILE))
+for j, row in enumerate(text_map):  # элементы списка карты - координаты у
+    for i, char in enumerate(row):  # элементы строк - координаты х
+        if char == 'W':  # заносим в элементы множества только стены, пустые места не интересны
+            world_map.add((i * TILE, j * TILE))  # умножаем координаты на размер квадрата карты
