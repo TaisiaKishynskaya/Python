@@ -24,13 +24,18 @@ DIST = NUM_RAYS / (2 * math.tan(HALF_FOV))  # расстоние от игрок
 PROJ_COEFF = 3 * DIST * TILE  # проекционный параметр (скорректированный из DIST * TILE, чтобы стена не была растянута)
 SCALE = WIDTH // NUM_RAYS  # масштабирующий коэф.
 
+# sprite settings
+DOUBLE_PI = math.pi * 2
+CENTER_RAY = NUM_RAYS // 2 - 1  # номер центрального луча
+FAKE_RAYS = 100  # фейковые лучи
+
 # texture settings (1200 x 1200)
 TEXTURE_WIDTH = 1200
 TEXTURE_HEIGHT = 1200
 TEXTURE_SCALE = TEXTURE_WIDTH // TILE  # масштабирующий коеф., чтобы текстура полностью влезла в размер квадрата карты
 
 # player settings
-player_pos = (HALF_WIDTH, HALF_HEIGHT)  # позиция игрока
+player_pos = (HALF_WIDTH // 4, HALF_HEIGHT - 50)  # позиция игрока
 player_angle = 0  # направление взгляда
 player_speed = 2  # скорость передвижения
 
@@ -44,4 +49,6 @@ DARKGRAY = (40, 40, 40)
 PURPLE = (120, 0, 120)
 SKYBLUE = (0, 186, 255)
 YELLOW = (220, 220, 0)
-SANDY = (244, 164, 96)  # цвет мини-карты
+SANDY = (244, 164, 96)
+DARKBROWN = (97, 61, 25)
+DARKORANGE = (255, 140, 0)
