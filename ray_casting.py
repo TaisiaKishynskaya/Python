@@ -30,8 +30,8 @@ def ray_casting(player_pos, player_angle, world_map):
     # цикл по всем лучам с реализацией алгоритма Бразенхэма:
     for ray in range(NUM_RAYS):  # вычисление тригонометрических ф-й направления луча
         sin_a = math.sin(cur_angle)  # определяет верхнее и нижнее направление горизонталей
-        cos_a = math.cos(cur_angle)  # косинус определяет, в какую сторону идти по вертикалям
         sin_a = sin_a if sin_a else 0.000001
+        cos_a = math.cos(cur_angle)  # косинус определяет, в какую сторону идти по вертикалям
         cos_a = cos_a if cos_a else 0.000001
 
         # verticals
@@ -83,19 +83,30 @@ def ray_casting(player_pos, player_angle, world_map):
 
 def ray_casting_walls(player, textures):
     casted_walls = ray_casting(player.pos, player.angle, world_map)
+    # т.к оружие находится посредине экрана, то потребуется размер проекции на центр.луче
+    wall_shot = casted_walls[CENTER_RAY][0], casted_walls[CENTER_RAY][2]
     walls = []
     for ray, casted_values in enumerate(casted_walls):
         depth, offset, proj_height, texture = casted_values
 
-        """Выделим подповерхность из нашей текстуры в виде квадрата, в котором начальные координаты равны 
-        вычисленному смещению текстуры, а ширину и высоту возьмем из определенных нами настроек:"""
-        wall_column = textures[texture].subsurface(offset * TEXTURE_SCALE, 0, TEXTURE_SCALE, TEXTURE_HEIGHT)
+        if proj_height > HEIGHT:  # когда проекционная высота стены больше разрешения высоты экрана
+            coeff = proj_height / HEIGHT
+            # текстурой достаточно взять подповерхность, которая будет во столько же раз <, во сколько проекция > экрана
+            texture_height = TEXTURE_HEIGHT / coeff
+            wall_column = textures[texture].subsurface(offset * TEXTURE_SCALE,
+                                                       HALF_TEXTURE_HEIGHT - texture_height // 2,
+                                                       TEXTURE_SCALE, texture_height)
+            wall_column = pygame.transform.scale(wall_column, (SCALE, HEIGHT))
+            wall_pos = (ray * SCALE, 0)
+        else:
+            """Выделим подповерхность из нашей текстуры в виде квадрата, в котором начальные координаты равны 
+                вычисленному смещению текстуры, а ширину и высоту возьмем из определенных нами настроек:"""
+            wall_column = textures[texture].subsurface(offset * TEXTURE_SCALE, 0, TEXTURE_SCALE, TEXTURE_HEIGHT)
+            """Масштабируем только что выделенную часть текстуры в прямоугольник, 
+                размер которого мы использовали до этого, то есть учитывая величину проекции стены:"""
+            wall_column = pygame.transform.scale(wall_column, (SCALE, proj_height))
+            # Вернем список с параметрами как дальность до стены, рассчитанная область текстуры и ее расположение
+            wall_pos = (ray * SCALE, HALF_HEIGHT - proj_height // 2)  # это всё для зэт-буфера
 
-        """Масштабируем только что выделенную часть текстуры в прямоугольник, 
-        размер которого мы использовали до этого, то есть учитывая величину проекции стены:"""
-        wall_column = pygame.transform.scale(wall_column, (SCALE, proj_height))
-
-        # Вернем список с параметрами как дальность до стены, рассчитанная область текстуры и ее расположение
-        wall_pos = (ray * SCALE, HALF_HEIGHT - proj_height // 2)  # это всё для зэт-буфера
         walls.append((depth, wall_column, wall_pos))
-    return walls
+    return walls, wall_shot

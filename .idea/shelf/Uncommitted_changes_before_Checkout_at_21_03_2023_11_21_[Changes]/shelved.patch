@@ -1,0 +1,47 @@
+Index: .prospector.yaml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>inherits:\r\n    - strictness_high\r\n\r\nignore:\r\n  - ^docs/\r\n  - ^build/\r\n  - venv\r\n\r\ntest-warnings: true\r\n\r\noutput-format: grouped\r\n\r\npep8:\r\n    # style checking\r\n    run: true\r\n    options:\r\n        max-line-length: 100\r\n\r\npylint:\r\n    # static analysis and then some\r\n    run: true\r\n    options:\r\n        max-line-length: 100\r\n        # allow 'log' as global constant\r\n        const-rgx: \"(([A-Z_][A-Z0-9_]*)|(__.*__)|log)$\"\r\n        const-hint: \"(([A-Z_][A-Z0-9_]*)|(__.*__)|log)$\"\r\n        # pytest module has dynamically assigned functions,\r\n        # raising errors such as: E1101: Module 'pytest' has\r\n        # no 'mark' member\r\n        ignored-classes: pytest\r\n    disable:\r\n        # Too many lines in module\r\n        - C0302\r\n        # Used * or ** magic\r\n        - W0142\r\n        # Used builtin function 'filter'.\r\n        # (For maintainability, one should prefer list comprehension.)\r\n        - W0141
+===================================================================
+diff --git a/.prospector.yaml b/.prospector.yaml
+--- a/.prospector.yaml	
++++ b/.prospector.yaml	
+@@ -21,10 +21,6 @@
+     run: true
+     options:
+         max-line-length: 100
+-        # allow 'log' as global constant
+-        const-rgx: "(([A-Z_][A-Z0-9_]*)|(__.*__)|log)$"
+-        const-hint: "(([A-Z_][A-Z0-9_]*)|(__.*__)|log)$"
+-        # pytest module has dynamically assigned functions,
+         # raising errors such as: E1101: Module 'pytest' has
+         # no 'mark' member
+         ignored-classes: pytest
+@@ -33,6 +29,7 @@
+         - C0302
+         # Used * or ** magic
+         - W0142
++        -
+         # Used builtin function 'filter'.
+         # (For maintainability, one should prefer list comprehension.)
+         - W0141
+\ No newline at end of file
+Index: task_4.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"Introduction to programming’: Task 4,\r\n   Kyshynska Taisiia\"\"\"\r\n\r\nprint('Introduction to programming’: Task 2')\r\nprint('Kyshynska Taisiia')\r\n\r\nmy_str = input('Input six-digit number: ')\r\nsum_first = 0\r\nsum_last = 0\r\n\r\n# Перевіряємо, чи введено шестизначне число\r\nif len(my_str) == 6:\r\n    # Обчислюємо суму перших та останніх трьох цифр\r\n    for i in range(3):\r\n        sum_first += int(my_str[i])\r\n        sum_last += int(my_str[i + 3])\r\n\r\n    # Порівнюємо суми перших та останніх трьох цифр\r\n    if sum_first == sum_last:\r\n        print(\"This is a lucky number!\")\r\n    else:\r\n        print(\"This is not a lucky number.\")\r\nelse:\r\n    print(\"Input six-digit number!\")\r\n
+===================================================================
+diff --git a/task_4.py b/task_4.py
+--- a/task_4.py	
++++ b/task_4.py	
+@@ -5,9 +5,9 @@
+ print('Kyshynska Taisiia')
+ 
+ my_str = input('Input six-digit number: ')
++
+ sum_first = 0
+ sum_last = 0
+-
+ # Перевіряємо, чи введено шестизначне число
+ if len(my_str) == 6:
+     # Обчислюємо суму перших та останніх трьох цифр

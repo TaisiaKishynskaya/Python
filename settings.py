@@ -21,7 +21,7 @@ MAP_POS = (0, HEIGHT - HEIGHT // MAP_SCALE)
 # ray casting settings
 FOV = math.pi / 3  # обл. видимости - угол, в который будет попадать всё, что мы видим
 HALF_FOV = FOV / 2  # под каким углом будут исходить первый и крайний лучи
-NUM_RAYS = 300  # в этой области будем испускать лучи, это их кол-во (не равно WIDTH, т.к. возникнут тормоза в пайтоне)
+NUM_RAYS = 300  # В этой области будем испускать лучи, это их кол-во (не равно WIDTH, т.к. возникнут тормоза в пайтоне)
 MAX_DEPTH = 800  # дальность прорисовки - макс. расстояние, на которое будем излучать лучи
 DELTA_ANGLE = FOV / NUM_RAYS  # угол между лучами
 DIST = NUM_RAYS / (2 * math.tan(HALF_FOV))  # расстоние от игрока до экрана
@@ -37,6 +37,7 @@ FAKE_RAYS_RANGE = NUM_RAYS - 1 + 2 * FAKE_RAYS
 # texture settings (1200 x 1200)
 TEXTURE_WIDTH = 1200
 TEXTURE_HEIGHT = 1200
+HALF_TEXTURE_HEIGHT = TEXTURE_HEIGHT // 2
 TEXTURE_SCALE = TEXTURE_WIDTH // TILE  # масштабирующий коеф., чтобы текстура полностью влезла в размер квадрата карты
 
 # player settings

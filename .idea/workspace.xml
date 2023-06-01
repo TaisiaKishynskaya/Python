@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="114c65b5-7559-4d0f-9e59-94de37d60a34" name="Changes" comment="Collision, Optimization (Numba)">
+      <change afterPath="$PROJECT_DIR$/.idea/Python.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_04_2023_16_46_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_04_2023_16_46_[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_04_2023_16_46__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_03_2023_11_21_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_03_2023_11_21_[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_03_2023_11_21__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_04_2023_21_10_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_04_2023_21_10__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/font.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font/font1.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interaction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sound/pain.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sound/shotgun.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sound/theme.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sound/win.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/barrel/death/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/barrel/death/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/barrel/death/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/barrel/death/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/devil/death/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/devil/death/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/devil/death/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/devil/death/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/devil/death/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/devil/death/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_h/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/doors/door_v/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/anim/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/anim/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/anim/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/anim/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/anim/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/anim/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/anim/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/anim/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/anim/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/base/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/base/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/base/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/base/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/base/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/base/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/base/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/base/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/death/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/death/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/death/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/death/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/death/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil0/death/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/action/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/action/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/action/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/action/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/action/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/action/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/base/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/base/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/base/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/base/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/base/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/base/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/base/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/death/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/death/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/death/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/death/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/death/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/death/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/death/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/death/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/death/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/death/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/devil1/death/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/action/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/action/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/action/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/action/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/Новая папка/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/Новая папка/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/Новая папка/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/Новая папка/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/Новая папка/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/Новая папка/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/Новая папка/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/base/Новая папка/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/Новая папка (2)/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/Новая папка (2)/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/Новая папка (2)/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/Новая папка (2)/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/Новая папка (2)/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier0/death/Новая папка (2)/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/action/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/action/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/action/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/action/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/base/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/base/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/base/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/base/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/base/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/base/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/base/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/base/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/Новая папка/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/Новая папка/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/Новая папка/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/Новая папка/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/Новая папка/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/npc/soldier1/death/Новая папка/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/sfx/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/sfx/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/sfx/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/sfx/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/sfx/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/sfx/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/sfx/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/sfx/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/sfx/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/base/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sprites/weapons/shotgun/shot/9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drawing.py" beforeDir="false" afterPath="$PROJECT_DIR$/drawing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ray_casting.py" beforeDir="false" afterPath="$PROJECT_DIR$/ray_casting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprite_objects.py" beforeDir="false" afterPath="$PROJECT_DIR$/sprite_objects.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Unit Test" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="origin/feature/task_0" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/task_7" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="68d27e62-73a8-4e78-a366-27c70357542c" />
+        <option name="url" value="https://github.com/TaisiaKishynskaya/Python" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2MyqepPuBICa9tFIjnqyPbbM432" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Stidy/Uni/MLP/PythonLabs/Python&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Stidy\Uni\MLP\PythonLabs\Python\tests\unit" />
+      <recent name="D:\Stidy\Uni\MLP\PythonLabs\Python" />
+      <recent name="D:\Stidy\Uni\MLP\PythonLabs\Python\tasks" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="task_0" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:\Stidy\Uni\MLP\PythonLabs\Python\task_0.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_task_7.test_add_subject_to_semester" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unit" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_task_7.test_add_subject_to_semester&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_task_7.test_remove_subject_from_semester" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unit" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_task_7.test_remove_subject_from_semester&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_task_7.test_validate_semester_exists" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unit" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_task_7.test_validate_semester_exists&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_task_7.test_validate_semester_number" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unit" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_task_7.test_validate_semester_number&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in tests" type="tests" factoryName="py.test" nameIsGenerated="true">
+      <module name="Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="D:\Stidy\Uni\MLP\PythonLabs\Python\venv\Scripts\python.exe" />
+      <option name="SDK_NAME" value="Python 3.11 (Python)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.task_0" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python tests.pytest in tests" />
+      <item itemvalue="Python tests.Python tests for test_task_7.test_add_subject_to_semester" />
+      <item itemvalue="Python tests.Python tests for test_task_7.test_remove_subject_from_semester" />
+      <item itemvalue="Python tests.Python tests for test_task_7.test_validate_semester_exists" />
+      <item itemvalue="Python tests.Python tests for test_task_7.test_validate_semester_number" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python tests.Python tests for test_task_7.test_remove_subject_from_semester" />
+        <item itemvalue="Python tests.Python tests for test_task_7.test_add_subject_to_semester" />
+        <item itemvalue="Python tests.Python tests for test_task_7.test_validate_semester_exists" />
+        <item itemvalue="Python tests.Python tests for test_task_7.test_validate_semester_number" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="114c65b5-7559-4d0f-9e59-94de37d60a34" name="Changes" comment="" />
+      <created>1678750267801</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678750267801</updated>
+    </task>
+    <task id="LOCAL-00166" summary="Clear tasks">
+      <created>1684220490724</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1684220490724</updated>
+    </task>
+    <task id="LOCAL-00167" summary="Clear tasks">
+      <created>1684226037891</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1684226037891</updated>
+    </task>
+    <task id="LOCAL-00168" summary="Clear tasks">
+      <created>1684227842771</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1684227842771</updated>
+    </task>
+    <task id="LOCAL-00169" summary="Clear tasks">
+      <created>1684227941597</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1684227941601</updated>
+    </task>
+    <task id="LOCAL-00170" summary="Clear tasks">
+      <created>1684228182594</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1684228182594</updated>
+    </task>
+    <task id="LOCAL-00171" summary="Clear tasks">
+      <created>1684229063564</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1684229063564</updated>
+    </task>
+    <task id="LOCAL-00172" summary="Fix prospector">
+      <created>1684229801663</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1684229801663</updated>
+    </task>
+    <task id="LOCAL-00173" summary="Clear program">
+      <created>1684233869558</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1684233869558</updated>
+    </task>
+    <task id="LOCAL-00174" summary="Add validations">
+      <created>1684245371078</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1684245371078</updated>
+    </task>
+    <task id="LOCAL-00175" summary="Clear program">
+      <created>1684248605111</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1684248605111</updated>
+    </task>
+    <task id="LOCAL-00176" summary="Clear program">
+      <created>1684248862047</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1684248862047</updated>
+    </task>
+    <task id="LOCAL-00177" summary="Clear program">
+      <created>1684249824747</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1684249824747</updated>
+    </task>
+    <task id="LOCAL-00178" summary="Add validation to utils">
+      <created>1684252166235</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1684252166235</updated>
+    </task>
+    <task id="LOCAL-00179" summary="Clear program">
+      <created>1684252295081</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1684252295081</updated>
+    </task>
+    <task id="LOCAL-00180" summary="Clear program">
+      <created>1684256945997</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1684256945997</updated>
+    </task>
+    <task id="LOCAL-00181" summary="Clear program">
+      <created>1684268284604</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1684268284604</updated>
+    </task>
+    <task id="LOCAL-00182" summary="Clear program">
+      <created>1684268294574</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1684268294574</updated>
+    </task>
+    <task id="LOCAL-00183" summary="Drift programs">
+      <created>1684270640452</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1684270640452</updated>
+    </task>
+    <task id="LOCAL-00184" summary="Done Tic Tac Toe">
+      <created>1684358037124</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1684358037125</updated>
+    </task>
+    <task id="LOCAL-00185" summary="Add file for test to prospector work">
+      <created>1684358234678</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1684358234678</updated>
+    </task>
+    <task id="LOCAL-00186" summary="Rewrite task 6">
+      <created>1684599742768</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1684599742772</updated>
+    </task>
+    <task id="LOCAL-00187" summary="Add some blank lines in task 7">
+      <created>1684600546873</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1684600546873</updated>
+    </task>
+    <task id="LOCAL-00188" summary="Add some blank lines in task 78">
+      <created>1684613947340</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1684613947340</updated>
+    </task>
+    <task id="LOCAL-00189" summary="Rewrite toe">
+      <created>1684620031510</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1684620031510</updated>
+    </task>
+    <task id="LOCAL-00190" summary="Rewrite validation in utils.py">
+      <created>1684916231898</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1684916231899</updated>
+    </task>
+    <task id="LOCAL-00191" summary="Add test for count_digits() in task 5.2">
+      <created>1684921078669</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1684921078669</updated>
+    </task>
+    <task id="LOCAL-00192" summary="Add test for count_digits() in task 5.2">
+      <created>1684921112493</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1684921112493</updated>
+    </task>
+    <task id="LOCAL-00193" summary="Ignore tests">
+      <created>1684938099385</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1684938099385</updated>
+    </task>
+    <task id="LOCAL-00194" summary="Ignore tests">
+      <created>1684955562610</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1684955562610</updated>
+    </task>
+    <task id="LOCAL-00195" summary="Draft">
+      <created>1684962242589</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1684962242589</updated>
+    </task>
+    <task id="LOCAL-00196" summary="Write tests for validate_semester_number">
+      <created>1685030736823</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1685030736824</updated>
+    </task>
+    <task id="LOCAL-00197" summary="Done tests for validate_semester_number">
+      <created>1685098466440</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1685098466441</updated>
+    </task>
+    <task id="LOCAL-00198" summary="Done tests for validate_semester_exists">
+      <created>1685116186434</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1685116186435</updated>
+    </task>
+    <task id="LOCAL-00199" summary="Draft">
+      <created>1685134989489</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1685134989489</updated>
+    </task>
+    <task id="LOCAL-00200" summary="Fix test_validate_semester_exists">
+      <created>1685195014546</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1685195014546</updated>
+    </task>
+    <task id="LOCAL-00201" summary="Fix test_validate_semester_exists">
+      <created>1685197112402</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1685197112402</updated>
+    </task>
+    <task id="LOCAL-00202" summary="Rewrite add_subject_to_semester, Done test_add_subject_to_semester">
+      <created>1685206996549</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1685206996549</updated>
+    </task>
+    <task id="LOCAL-00203" summary="Draft test_remove_subject_from_semester">
+      <created>1685222872001</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1685222872001</updated>
+    </task>
+    <task id="LOCAL-00204" summary="Draft test_remove_subject_from_semester">
+      <created>1685301614124</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1685301614124</updated>
+    </task>
+    <task id="LOCAL-00205" summary="Delete own">
+      <created>1685392962554</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1685392962555</updated>
+    </task>
+    <task id="LOCAL-00206" summary="1st part (done 2d view, 3d view)">
+      <created>1685394201454</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1685394201454</updated>
+    </task>
+    <task id="LOCAL-00207" summary="1st part (done 2d view, 3d view)">
+      <created>1685537703342</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1685537703346</updated>
+    </task>
+    <task id="LOCAL-00208" summary="FPS control, mini-map, improved engine with performance headroom and improved graphics, more colors">
+      <created>1685543813330</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1685543813334</updated>
+    </task>
+    <task id="LOCAL-00209" summary="Add textures (walls, dynamic sky)">
+      <created>1685549363622</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1685549363622</updated>
+    </task>
+    <task id="LOCAL-00210" summary="Add sprites for barrel, devil and pedestal">
+      <created>1685565995913</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1685565995914</updated>
+    </task>
+    <task id="LOCAL-00211" summary="Add anim and base sprites">
+      <created>1685566669770</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1685566669770</updated>
+    </task>
+    <task id="LOCAL-00212" summary="Done animation, fix err with exit outside the map.">
+      <created>1685627153951</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1685627153952</updated>
+    </task>
+    <task id="LOCAL-00213" summary="Done animation, fix err with exit outside the map.">
+      <created>1685627169344</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
+      <option name="project" value="LOCAL" />
+      <updated>1685627169344</updated>
+    </task>
+    <task id="LOCAL-00214" summary="Collision, Optimization (Numba)">
+      <created>1685636831589</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1685636831589</updated>
+    </task>
+    <option name="localTasksCounter" value="215" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Clear program" />
+    <MESSAGE value="Drift programs" />
+    <MESSAGE value="Done Tic Tac Toe" />
+    <MESSAGE value="Add file for test to prospector work" />
+    <MESSAGE value="Rewrite task 6" />
+    <MESSAGE value="Add some blank lines in task 7" />
+    <MESSAGE value="Rewrite toe" />
+    <MESSAGE value="Rewrite validation in utils.py" />
+    <MESSAGE value="Add test for count_digits() in task 5.2" />
+    <MESSAGE value="Ignore tests" />
+    <MESSAGE value="Write tests for validate_semester_number" />
+    <MESSAGE value="Done tests for validate_semester_number" />
+    <MESSAGE value="Done tests for validate_semester_exists" />
+    <MESSAGE value="Draft" />
+    <MESSAGE value="Fix test_validate_semester_exists" />
+    <MESSAGE value="Rewrite add_subject_to_semester, Done test_add_subject_to_semester" />
+    <MESSAGE value="Draft test_remove_subject_from_semester" />
+    <MESSAGE value="Delete own" />
+    <MESSAGE value="1st part (done 2d view, 3d view)" />
+    <MESSAGE value="FPS control, mini-map, improved engine with performance headroom and improved graphics, more colors" />
+    <MESSAGE value="Add textures (walls, dynamic sky)" />
+    <MESSAGE value="Add sprites for barrel, devil and pedestal" />
+    <MESSAGE value="Add anim and base sprites" />
+    <MESSAGE value="Done animation, fix err with exit outside the map." />
+    <MESSAGE value="Collision, Optimization (Numba)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Collision, Optimization (Numba)" />
+  </component>
+</project>

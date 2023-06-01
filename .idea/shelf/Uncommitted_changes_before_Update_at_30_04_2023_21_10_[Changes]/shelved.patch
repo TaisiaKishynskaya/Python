@@ -1,0 +1,86 @@
+Index: utils.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>def get_intro_string():\r\n    return 'Introduction to programming: Task 4'\r\n\r\n\r\ndef get_name_string():\r\n    return 'Kyshynska Taisiia'\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/utils.py b/utils.py
+--- a/utils.py	(revision 09238bdf5a5e337d0b0e3140dcac83b129f3c9e5)
++++ b/utils.py	(date 1681050028802)
+@@ -1,6 +1,3 @@
+-def get_intro_string():
+-    return 'Introduction to programming: Task 4'
+-
+-
+-def get_name_string():
+-    return 'Kyshynska Taisiia'
++def print_intro():
++    print('Introduction to programming: Task 2')
++    print('Kyshynska Taisiia')
+Index: task_4.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>def input_number():\r\n    my_num = input('Input six-digit number or type \"exit\" to quit: ')\r\n    try:\r\n        my_num = int(my_num)\r\n    except ValueError:\r\n        pass\r\n    return my_num\r\n\r\n\r\nif __name__ == '__main__':\r\n    from utils import get_intro_string, get_name_string\r\n\r\n    print(get_intro_string())\r\n    print(get_name_string())\r\n\r\n    while True:\r\n        my_str = input_number()\r\n\r\n        if len(str(my_str)) == 6:\r\n            RESULT = 'lucky' if sum(map(int, str(my_str)[:3])) == sum(map(int, str(my_str)[3:])) else 'unlucky'\r\n            print(f'This number is {RESULT}')\r\n        elif str(my_str).lower() == 'exit':\r\n            break\r\n        elif not isinstance(my_str, int):\r\n            print('Input number!')\r\n            input_number()\r\n        else:\r\n            print('Input six-digit number!')\r\n\r\n    print(my_str)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/task_4.py b/task_4.py
+--- a/task_4.py	(revision 09238bdf5a5e337d0b0e3140dcac83b129f3c9e5)
++++ b/task_4.py	(date 1682878188451)
+@@ -1,4 +1,31 @@
++from utils import print_intro
++print_intro()
++
++
+ def input_number():
++    my_num = input('Input six-digit number or type "exit" to quit: ')
++    if my_num.isdigit() and len(my_num) == 6:
++        return int(my_num)
++    else:
++        return None
++
++
++if __name__ == '__main__':
++    while True:
++        my_num = input_number()
++
++        if my_num is None:
++            print('Input six-digit number!')
++        else:
++            RESULT = 'lucky' if sum(map(int, str(my_num)[:3])) == sum(map(int, str(my_num)[3:])) else 'unlucky'
++            print(f'This number is {RESULT}')
++        if str(my_num).lower() == 'exit':
++            break
++
++    print(my_num)
++
++
++"""def input_number():
+     my_num = input('Input six-digit number or type "exit" to quit: ')
+     try:
+         my_num = int(my_num)
+@@ -8,11 +35,6 @@
+ 
+ 
+ if __name__ == '__main__':
+-    from utils import get_intro_string, get_name_string
+-
+-    print(get_intro_string())
+-    print(get_name_string())
+-
+     while True:
+         my_str = input_number()
+ 
+@@ -27,4 +49,4 @@
+         else:
+             print('Input six-digit number!')
+ 
+-    print(my_str)
++    print(my_str)"""
+diff --git a/task_6_7.py b/task_6_7.py
+new file mode 100644
+diff --git a/task_6_8.py b/task_6_8.py
+new file mode 100644
+diff --git a/task_6_9.py b/task_6_9.py
+new file mode 100644
