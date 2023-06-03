@@ -16,6 +16,7 @@ class Sprites:
                                     for i in range(12)]),  # анимация (очередь из всех спрайтов, или ложное значение)
                 'animation_dist': 800,  # расстояние до спрайта, при котором включается его анимация
                 'animation_speed': 10,  # скорости анимации
+                'blocked': True,  # сами определяем, какие спрайты проходимы, а какие - нет
             },
             'sprite_pin': {
                 'sprite': pygame.image.load('sprites/pin/base/0.png').convert_alpha(),
@@ -47,7 +48,7 @@ class Sprites:
                     [pygame.image.load(f'sprites/flame/anim/{i}.png').convert_alpha() for i in range(16)]),
                 'animation_dist': 800,
                 'animation_speed': 5,
-                'blocked': None,
+                'blocked': False,  # пламя проходимое
             },
         }
         # Тут держим все спрайтовые картинки для текущей карты, т.е. это карта наших спрайтов
@@ -72,8 +73,11 @@ class SpriteObject:
         self.animation = parameters['animation'].copy()
         self.animation_dist = parameters['animation_dist']
         self.animation_speed = parameters['animation_speed']
+        self.blocked = parameters['blocked']
+        self.side = 30  # определим сторону квадрата, в котором будет спрайт
         self.animation_count = 0  # счётчик для реализации нашей анимации
-        self.pos = self.x, self.y = pos[0] * TILE, pos[1] * TILE  # координаты спрайта задаем в системе координат карты
+        self.x, self.y = pos[0] * TILE, pos[1] * TILE  # координаты спрайта задаем в системе координат карты
+        self.pos = self.x - self.side // 2, self.y - self.side // 2  # положение спрайта в центре этого квадрата
         if self.viewing_angles:
             self.sprite_angles = [frozenset(range(i, i + 45)) for i in range(0, 360, 45)]
             self.sprite_positions = {angle: pos for angle, pos in zip(self.sprite_angles, self.object)}
@@ -127,8 +131,9 @@ class SpriteObject:
                     self.animation_count = 0  # и все те же самые действия будем проделывать с другим спрайтом
 
             """ Позиция спрайта относительно его луча, для этого совместили центр спрайта с его лучом, 
-            и определим положение по высоте с учетом его заданного сдвига"""
+                и определим положение по высоте с учетом его заданного сдвига"""
             sprite_pos = (current_ray * SCALE - half_proj_height, HALF_HEIGHT - half_proj_height + shift)
+
             # масштабируем спрайт по размерам его проекционной высоте и отдаем на отрисовку
             sprite = pygame.transform.scale(sprite_object, (proj_height, proj_height))
             return distance_to_sprite, sprite, sprite_pos

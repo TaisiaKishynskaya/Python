@@ -1,4 +1,8 @@
 from settings import *
+import pygame
+from numba.core import types
+from numba.typed import Dict  # свой тип данных по аналогии со словарем
+from numba import int32
 
 _ = False
 
@@ -24,14 +28,16 @@ matrix_map = [
 WORLD_WIDTH = len(matrix_map[0]) * TILE  # ширина игрового мира
 WORLD_HEIGHT = len(matrix_map) * TILE  # длина игрового мира
 
-"""Держим координаты стен в структуре данных типа множество.
-   Потом это поможет ускорить проверку на предмет пересечения со стеной"""
-world_map = {}
+# Вместо обычного словаря, пустой импортированный словарь, ключи - только кортежи с 2-мя int32-элементами, зн-ия - int32
+world_map = Dict.empty(key_type=types.UniTuple(int32, 2), value_type=int32)
 mini_map = set()
+# необходим именно список, чтобы использовать встроенные в класс Rect ф-ии коллизии
+collision_walls = []  # список стен, каждая стена - экземпляр класса Rect (квадратом со размером нашей стены)
 for j, row in enumerate(matrix_map):  # элементы списка карты - координаты у
     for i, char in enumerate(row):  # элементы строк - координаты х
         if char:  # заносим в элементы множества только стены, пустые места не интересны
             mini_map.add((i * MAP_TILE, j * MAP_TILE))
+            collision_walls.append(pygame.Rect(i * TILE, j * TILE, TILE, TILE))
             if char == 1:
                 world_map[(i * TILE, j * TILE)] = 1  # умножаем координаты на размер квадрата карты
             elif char == 2:
