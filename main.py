@@ -1,39 +1,28 @@
 import pygame
 from settings import *
 from player import Player
-# import math
-# from map import world_map
-from ray_casting import ray_casting
+import math
+from map import world_map
+from drawing import Drawing
 
 pygame.init()
-
 sc = pygame.display.set_mode((WIDTH, HEIGHT))  # разрешение экрана
+sc_map = pygame.Surface((WIDTH // MAP_SCALE, HEIGHT // MAP_SCALE))  # карта на отдельной поверхности, уменьшеной в 5 раз
 clock = pygame.time.Clock()  # объект класса Clock для установки кол-ва кадров в секунду
 player = Player()
+drawing = Drawing(sc, sc_map)
 
 while True:
     for event in pygame.event.get():  # проверим все события
         if event.type == pygame.QUIT:  # на предмет закрытия окна и выхода из приложения
             exit()
-    player.movement()  # управление игроком
-    sc.fill(BLACK)  # поверхность чёрная, обновим содержимое приложения на каждой итерации
-    pygame.draw.rect(sc, BLUE, (0, 0, WIDTH, HALF_HEIGHT))  # небо
-    pygame.draw.rect(sc, DARKGRAY, (0, HALF_HEIGHT, WIDTH, HALF_HEIGHT))  # пол
+    player.movement()
+    sc.fill(BLACK)
 
-    ray_casting(sc, player.pos, player.angle)
-
-    """Координаты дробные, поэтому передаем их целую часть в построении круга"""
-    # pygame.draw.circle(sc, GREEN, (int(player.x), int(player.y)), 12)  # игрок - круг в центре экрана
-
-    """Вычислим синус и косинус направления угла игрока, направление задали отрисовкой линии, 
-         длина которой равна ширине экрана"""
-    # pygame.draw.line(sc, GREEN, player.pos, (player.x + WIDTH * math.cos(player.angle),
-    #                                          player.y + WIDTH * math. sin(player.angle)), 2)
-
-    """Это позволяет менять структуру карты в любой момент без лишних хлопот."""
-    # for x,y in world_map:
-    #     pygame.draw.rect(sc, DARKGRAY, (x, y, TILE, TILE), 2)  # пройдясь по х и у, рисуем соответствующие им квадраты
+    drawing.background()
+    drawing.world(player.pos, player.angle)
+    drawing.fps(clock)  # на вход принимает экземпляр класса
+    drawing.mini_map(player)
 
     pygame.display.flip()
-    clock.tick(FPS)  # задержка для нужного ФПС
-    # print(clock.get_fps())
+    clock.tick()  # задержка для нужного ФПС
