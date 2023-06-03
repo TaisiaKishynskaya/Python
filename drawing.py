@@ -8,17 +8,25 @@ class Drawing:
     def __init__(self, sc, sc_map):
         self.sc = sc  # поверхность для карты
         self.sc_map = sc_map  # поверхность для уменьшенной карты
-        self.font = pygame.font.SysFont('Arial', 36, bold=True)  # кол-во кадров в игре, как в обычных играх
-        # для этого определяем новый атрибут системного шрифта и
+        # Кол-во кадров в игре, как в обычных играх. Для этого определяем новый атрибут системного шрифта:
+        self.font = pygame.font.SysFont('Arial', 36, bold=True)
+        self.textures = {'1': pygame.image.load('img/1.png').convert(),  # ключи - номера стен, значения - текстуры
+                         '2': pygame.image.load('img/2.png').convert(),
+                         'S': pygame.image.load('img/sky.png').convert()}
 
-    # Фон игры
-    def background(self):
-        pygame.draw.rect(self.sc, SKYBLUE, (0, 0, WIDTH, HALF_HEIGHT))
+    # Фон игры, принимает в параметр угол игрока, Реализация динамического неба
+    def background(self, angle):
+        # смещение по текстуре путем нахождения остатка от деления обратного направления игрока на ширину главного окна:
+        sky_offset = -5 * math.degrees(angle) % WIDTH
+        # нарисуем три участка неба в зависимости от смещения, чтобы не было видно пробелов
+        self.sc.blit(self.textures['S'], (sky_offset, 0))
+        self.sc.blit(self.textures['S'], (sky_offset - WIDTH, 0))
+        self.sc.blit(self.textures['S'], (sky_offset + WIDTH, 0))
         pygame.draw.rect(self.sc, DARKGRAY, (0, HALF_HEIGHT, WIDTH, HALF_HEIGHT))
 
     # Главная проекция
     def world(self, player_pos, player_angle):
-        ray_casting(self.sc, player_pos, player_angle)
+        ray_casting(self.sc, player_pos, player_angle, self.textures)
 
     #
     def fps(self, clock):
@@ -35,5 +43,5 @@ class Drawing:
                                                                map_y + 12 * math.sin(player.angle)), 2)
         pygame.draw.circle(self.sc_map, RED, (int(map_x), int(map_y)), 5)
         for x, y in mini_map:
-            pygame.draw.rect(self.sc_map, GREEN, (x, y, MAP_TILE, MAP_TILE))
+            pygame.draw.rect(self.sc_map, SANDY, (x, y, MAP_TILE, MAP_TILE))
         self.sc.blit(self.sc_map, MAP_POS)  # мини-карта в левом нижнем углу главной поверхности
