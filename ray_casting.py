@@ -9,14 +9,17 @@ def mapping(a, b):
 
 
 # Ф-я принимает поверхности отрисовки, позицию и угол игрока
-def ray_casting(sc, player_pos, player_angle, textures):
-    ox, oy = player_pos  # начальные координаты луча
+def ray_casting(player, textures):
+    walls = []
+    ox, oy = player.pos  # начальные координаты луча
     xm, ym = mapping(ox, oy)
-    cur_angle = player_angle - HALF_FOV  # текущий угол
+    cur_angle = player.angle - HALF_FOV  # текущий угол
     # цикл по всем лучам с реализацией алгоритма Бразенхэма:
     for ray in range(NUM_RAYS):  # вычисление тригонометрических ф-й направления луча
         sin_a = math.sin(cur_angle)  # определяет верхнее и нижнее направление горизонталей
         cos_a = math.cos(cur_angle)  # косинус определяет, в какую сторону идти по вертикалям
+        sin_a = sin_a if sin_a else 0.000001
+        cos_a = cos_a if cos_a else 0.000001
 
         # verticals
         """в зависимости от знака косинуса, определим х - текущую вертикаль, dx - вспомогательная переменная, 
@@ -49,7 +52,7 @@ def ray_casting(sc, player_pos, player_angle, textures):
         depth, offset, texture = (depth_v, yv, texture_v) if depth_v < depth_h else (depth_h, xh, texture_h)
         offset = int(offset) % TILE  # Вычислим смещение путем нахождения остатка от деления от квадрата карты
         # Чтобы избежать эффекта рыбьего глаза, что возникает из-за использования евклидовых расстояний:
-        depth *= math.cos(player_angle - cur_angle)
+        depth *= math.cos(player.angle - cur_angle)
         depth = max(depth, 0.00001)  # избегаем падения игры из-за деления на 0
         # Падение фпс при приближении к стенам из-за отрисовки проекций большой величины, ограничим ее вот так:
         proj_height = min(int(PROJ_COEFF / depth), 2 * HEIGHT)  # проекционная высота стены..
@@ -60,7 +63,9 @@ def ray_casting(sc, player_pos, player_angle, textures):
         """Масштабируем только что выделенную часть текстуры в пямоугольник, 
         размер которого мы использовали до этого, то есть учитывая величину проекци стены:"""
         wall_column = pygame.transform.scale(wall_column, (SCALE, proj_height))
-        """Наносим эту часть текстуры на главную поверхность в зависимости от нумерации луча"""
-        sc.blit(wall_column, (ray * SCALE, HALF_HEIGHT - proj_height // 2))
+        # Вернем список с параметрами как дальность до стены, рассчитанная область текстуры и ее расположение
+        wall_pos = (ray * SCALE, HALF_HEIGHT - proj_height // 2)  # это всё для зэт-буфера
 
+        walls.append((depth, wall_column, wall_pos))
         cur_angle += DELTA_ANGLE  # изменение угла для очередного луча
+    return walls
