@@ -8,14 +8,14 @@ from map import collision_walls
 
 class Player:
     def __init__(self, sprites):
-        self.x, self.y = player_pos  # координаты игрока
+        self.x, self.y = PLAYER_POS  # координаты игрока
         self.sprites = sprites  # позволяет создать карту спрайтов
-        self.angle = player_angle  # направление взгляда
+        self.angle = PLAYER_ANGLE  # направление взгляда
         self.sensitivity = 0.004  # чувствительность мышки
 
         # collision parameters
         self.side = 50  # размер стороны квадрата, который будет игроком на карте вместо точки
-        self.rect = pygame.Rect(*player_pos, self.side, self.side)  # экземпляр класса Rect
+        self.rect = pygame.Rect(*PLAYER_POS, self.side, self.side)  # экземпляр класса Rect
         # weapon
         self.shot = False  # логический параметр, True при нажатии ЛКМ
 
@@ -83,20 +83,20 @@ class Player:
             exit()
         # определяем перемещение игрока на следующий шаг как dx, dy
         if keys[pygame.K_w]:
-            dx = player_speed * cos_a  # Нахождение точки по направлению луча
-            dy = player_speed * sin_a
+            dx = PLAYER_SPEED * cos_a  # Нахождение точки по направлению луча
+            dy = PLAYER_SPEED * sin_a
             self.detect_collision(dx, dy)  # вызываем эту ф-ю после нажатия каждой кнопки
         if keys[pygame.K_s]:
-            dx = -player_speed * cos_a
-            dy = -player_speed * sin_a
+            dx = -PLAYER_SPEED * cos_a
+            dy = -PLAYER_SPEED * sin_a
             self.detect_collision(dx, dy)
         if keys[pygame.K_a]:
-            dx = player_speed * sin_a
-            dy = -player_speed * cos_a
+            dx = PLAYER_SPEED * sin_a
+            dy = -PLAYER_SPEED * cos_a
             self.detect_collision(dx, dy)
         if keys[pygame.K_d]:
-            dx = -player_speed * sin_a
-            dy = player_speed * cos_a
+            dx = -PLAYER_SPEED * sin_a
+            dy = PLAYER_SPEED * cos_a
             self.detect_collision(dx, dy)
 
         if keys[pygame.K_LEFT]:

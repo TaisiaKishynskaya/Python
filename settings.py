@@ -41,9 +41,9 @@ HALF_TEXTURE_HEIGHT = TEXTURE_HEIGHT // 2
 TEXTURE_SCALE = TEXTURE_WIDTH // TILE  # масштабирующий коеф., чтобы текстура полностью влезла в размер квадрата карты
 
 # player settings
-player_pos = (HALF_WIDTH // 4, HALF_HEIGHT - 50)  # позиция игрока
-player_angle = 0  # направление взгляда
-player_speed = 2  # скорость передвижения
+PLAYER_POS = (HALF_WIDTH // 4, HALF_HEIGHT - 50)  # позиция игрока
+PLAYER_ANGLE = 0  # направление взгляда
+PLAYER_SPEED = 2  # скорость передвижения
 
 # colors
 WHITE = (255, 255, 255)
