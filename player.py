@@ -12,17 +12,22 @@ class Player:
         self.sprites = sprites  # позволяет создать карту спрайтов
         self.angle = player_angle  # направление взгляда
         self.sensitivity = 0.004  # чувствительность мышки
+
         # collision parameters
         self.side = 50  # размер стороны квадрата, который будет игроком на карте вместо точки
         self.rect = pygame.Rect(*player_pos, self.side, self.side)  # экземпляр класса Rect
-        # создадим спрайты экземплярами класса Rect, учитывая размер, позицию, блокировку спрайта
-        self.collision_sprites = [pygame.Rect(*obj.pos, obj.side, obj.side) for obj in
-                                  self.sprites.list_of_objects if obj.blocked]
-        self.collision_list = collision_walls + self.collision_sprites  # объединяем списки стен и спрайтов
+        # weapon
+        self.shot = False  # логический параметр, True при нажатии ЛКМ
 
     @property
     def pos(self):
         return self.x, self.y  # вернет позицию по х и у
+
+    # Список всех объектов для коллизии, т.к. объекты меняют атрибуты блокировки
+    @property
+    def collision_list(self):
+        return collision_walls + [pygame.Rect(*obj.pos, obj.side, obj.side) for obj in
+                                  self.sprites.list_of_objects if obj.blocked]
 
     # Ф-я для определения столкновений, принимает передвижение на 1 шаг по обоим осям
     def detect_collision(self, dx, dy):
@@ -72,6 +77,7 @@ class Player:
     def keys_control(self):
         sin_a = math.sin(self.angle)
         cos_a = math.cos(self.angle)
+
         keys = pygame.key.get_pressed()
         if keys[pygame.K_ESCAPE]:  # выход из приложения по нажатию Esc
             exit()
@@ -97,6 +103,14 @@ class Player:
             self.angle -= 0.02
         if keys[pygame.K_RIGHT]:
             self.angle += 0.02
+
+        # после выстрела идет анимация перезарядки.
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1 and not self.shot:
+                    self.shot = True
 
     """Управление мышью"""
     def mouse_control(self):

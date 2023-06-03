@@ -13,19 +13,19 @@ FPS_POS = (WIDTH - 65, 5)
 
 # minimap settings
 MINIMAP_SCALE = 5  # масштабирующий коефициент для карты, чтобы уменьшить нашу карту в 5 раз
-MINIMAP_RES = (WIDTH // MINIMAP_SCALE, HEIGHT // MINIMAP_SCALE)  # числ.коеф.,чтобы весь мир отображался в мини-карте
-MAP_SCALE = 2 * MINIMAP_SCALE  # 1 -> 12 x 8, 2 -> 24 x 16, 3 -> 36 x 24 - масштаб. коефициент для стороны квадрата
+MINIMAP_RES = (WIDTH // MINIMAP_SCALE, HEIGHT // MINIMAP_SCALE)  # числ.коеф., чтобы весь мир отображался в мини-карте
+MAP_SCALE = 2 * MINIMAP_SCALE  # 1 -> 12 x 8, 2 -> 24 x 16, 3 -> 36 x 24 - масштаб. коэфициент для стороны квадрата
 MAP_TILE = TILE // MAP_SCALE
-MAP_POS = (0, HEIGHT - HEIGHT // MAP_SCALE)
+MAP_POS = (0, HEIGHT - HEIGHT // MINIMAP_SCALE)
 
 # ray casting settings
 FOV = math.pi / 3  # обл. видимости - угол, в который будет попадать всё, что мы видим
 HALF_FOV = FOV / 2  # под каким углом будут исходить первый и крайний лучи
-NUM_RAYS = 300  # в этой области будем испускать лучи, это их кол-во (не равно WIDTH, т.к. возникнут тормоза в пайтоне)
+NUM_RAYS = 300  # В этой области будем испускать лучи, это их кол-во (не равно WIDTH, т.к. возникнут тормоза в пайтоне)
 MAX_DEPTH = 800  # дальность прорисовки - макс. расстояние, на которое будем излучать лучи
 DELTA_ANGLE = FOV / NUM_RAYS  # угол между лучами
 DIST = NUM_RAYS / (2 * math.tan(HALF_FOV))  # расстоние от игрока до экрана
-PROJ_COEFF = 3 * DIST * TILE  # проекционный параметр (скорректированный из DIST * TILE, чтобы стена не была растянута)
+PROJ_COEF = 3 * DIST * TILE  # проекционный параметр (скорректированный из DIST * TILE, чтобы стена не была растянута)
 SCALE = WIDTH // NUM_RAYS  # масштабирующий коэфициент
 
 # sprite settings
@@ -37,6 +37,7 @@ FAKE_RAYS_RANGE = NUM_RAYS - 1 + 2 * FAKE_RAYS
 # texture settings (1200 x 1200)
 TEXTURE_WIDTH = 1200
 TEXTURE_HEIGHT = 1200
+HALF_TEXTURE_HEIGHT = TEXTURE_HEIGHT // 2
 TEXTURE_SCALE = TEXTURE_WIDTH // TILE  # масштабирующий коеф., чтобы текстура полностью влезла в размер квадрата карты
 
 # player settings
@@ -50,10 +51,10 @@ BLACK = (0, 0, 0)
 RED = (220, 0, 0)
 GREEN = (0, 80, 0)
 BLUE = (0, 0, 255)
-DARKGRAY = (40, 40, 40)
+DARK_GRAY = (40, 40, 40)
 PURPLE = (120, 0, 120)
 SKYBLUE = (0, 186, 255)
 YELLOW = (220, 220, 0)
 SANDY = (244, 164, 96)
-DARKBROWN = (97, 61, 25)
-DARKORANGE = (255, 140, 0)
+DARK_BROWN = (97, 61, 25)
+DARK_ORANGE = (255, 140, 0)
