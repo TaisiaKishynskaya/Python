@@ -10,9 +10,12 @@ class Drawing:
         self.sc_map = sc_map  # поверхность для уменьшенной карты
         # Кол-во кадров в игре, как в обычных играх. Для этого определяем новый атрибут системного шрифта:
         self.font = pygame.font.SysFont('Arial', 36, bold=True)
-        self.textures = {'1': pygame.image.load('img/wall1.png').convert(),  # ключи - номера стен, значения - текстуры
-                         '2': pygame.image.load('img/wall2.png').convert(),
-                         'S': pygame.image.load('img/sky3.png').convert()}
+        self.textures = {1: pygame.image.load('img/wall3.png').convert(),
+                         2: pygame.image.load('img/wall4.png').convert(),
+                         3: pygame.image.load('img/wall5.png').convert(),
+                         4: pygame.image.load('img/wall6.png').convert(),
+                         'S': pygame.image.load('img/sky1.png').convert()
+                         }  # ключи - номера стен, значения - текстуры
 
     # Фон игры, принимает в параметр угол игрока, Реализация динамического неба
     def background(self, angle):

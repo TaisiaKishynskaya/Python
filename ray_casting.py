@@ -1,6 +1,6 @@
 import pygame
 from settings import *
-from map import world_map
+from map import world_map, WORLD_WIDTH, WORLD_HEIGHT
 
 
 # координаты верхнего левого угла квадрата, в котором мы находимся в данный момент
@@ -12,6 +12,10 @@ def mapping(a, b):
 def ray_casting(player, textures):
     walls = []
     ox, oy = player.pos  # начальные координаты луча
+
+    # Это избавит нас от ошибки в случае выхода за пределы карты:
+    texture_v, texture_h = 1, 1  # дефолтные номера текстур для горизонтальных, вертикальных стен
+
     xm, ym = mapping(ox, oy)
     cur_angle = player.angle - HALF_FOV  # текущий угол
     # цикл по всем лучам с реализацией алгоритма Бразенхэма:
@@ -26,7 +30,7 @@ def ray_casting(player, textures):
         при помощи которой будем получать очередную вертикаль."""
         x, dx = (xm + TILE, 1) if cos_a >= 0 else (xm, -1)
         # проходимся по всем вертикалям (ширине экрана) с шагом = стороне квадрату карты
-        for i in range(0, WIDTH, TILE):
+        for i in range(0, WORLD_WIDTH, TILE):
             depth_v = (x - ox) / cos_a  # расстояние до вертикали
             yv = oy + depth_v * sin_a  # координата вертикали у по выведенным раннее формулам
             tile_v = mapping(x + dx, yv)
@@ -39,7 +43,7 @@ def ray_casting(player, textures):
 
         # horizontals
         y, dy = (ym + TILE, 1) if sin_a >= 0 else (ym, -1)
-        for i in range(0, HEIGHT, TILE):
+        for i in range(0, WORLD_HEIGHT, TILE):
             depth_h = (y - oy) / sin_a
             xh = ox + depth_h * cos_a
             tile_h = mapping(xh, y + dy)
@@ -55,7 +59,7 @@ def ray_casting(player, textures):
         depth *= math.cos(player.angle - cur_angle)
         depth = max(depth, 0.00001)  # избегаем падения игры из-за деления на 0
         # Падение фпс при приближении к стенам из-за отрисовки проекций большой величины, ограничим ее вот так:
-        proj_height = min(int(PROJ_COEFF / depth), 2 * HEIGHT)  # проекционная высота стены..
+        proj_height = min(int(PROJ_COEFF / depth), PENTA_HEIGHT)  # проекционная высота стены..
 
         """Выделим подповерхность из нашей текстуры в виде квадрата, в котором начальные координаты равны вычесленному 
         смещению текстуры, а ширину и высоту возьмем из определенных нами настроек:"""

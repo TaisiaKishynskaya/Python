@@ -5,12 +5,16 @@ WIDTH = 1200  # разрешение экрана
 HEIGHT = 800
 HALF_WIDTH = WIDTH // 2
 HALF_HEIGHT = HEIGHT // 2
+PENTA_HEIGHT = 5 * HEIGHT  # оптимизация для проекционной высоты
+DOUBLE_HEIGHT = 2 * HEIGHT
 FPS = 60
 TILE = 100
 FPS_POS = (WIDTH - 65, 5)
 
 # minimap settings
-MAP_SCALE = 5  # масштабирующий коефициент для карты, чтобы уменьшить нашу карту в 5 раз
+MINIMAP_SCALE = 5  # масштабирующий коефициент для карты, чтобы уменьшить нашу карту в 5 раз
+MINIMAP_RES = (WIDTH // MINIMAP_SCALE, HEIGHT // MINIMAP_SCALE)  # числ.коеф.,чтобы весь мир отображался в мини-карте
+MAP_SCALE = 2 * MINIMAP_SCALE  # 1 -> 12 x 8, 2 -> 24 x 16, 3 -> 36 x 24
 MAP_TILE = TILE // MAP_SCALE  # масштабирующий коефициент для стороны квадрата
 MAP_POS = (0, HEIGHT - HEIGHT // MAP_SCALE)
 
@@ -28,6 +32,7 @@ SCALE = WIDTH // NUM_RAYS  # масштабирующий коэф.
 DOUBLE_PI = math.pi * 2
 CENTER_RAY = NUM_RAYS // 2 - 1  # номер центрального луча
 FAKE_RAYS = 100  # фейковые лучи
+FAKE_RAYS_RANGE = NUM_RAYS - 1 + 2 * FAKE_RAYS
 
 # texture settings (1200 x 1200)
 TEXTURE_WIDTH = 1200
